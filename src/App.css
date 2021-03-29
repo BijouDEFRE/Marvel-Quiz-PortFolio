@@ -190,12 +190,14 @@ footer {
 }
 
 .footer-container p {
+  /* font-family: 'Bangers', cursive; */
   color: var(--white-color);
   line-height: 19px;
   margin: 10px 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: normal;
+  text-align: center;
 }
 
 /* ERROR PAGE */
