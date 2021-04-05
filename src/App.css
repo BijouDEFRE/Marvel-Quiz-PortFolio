@@ -30,6 +30,8 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Anton|Bangers|Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap');
+/* Adobe Fonts */
+@import url("https://use.typekit.net/qvv0uzc.css");
 
 :root {
   --white-color: #ffffff;
@@ -79,7 +81,7 @@ h3 {
 body {
   margin: 0;
   padding: 0;
-  background-image: url(images/bg-noise-texture.png);
+  background-image: url(images/bg-noise-texture2.png);
   background-repeat: repeat;
   height: 100vh;
   display: flex;
@@ -104,6 +106,12 @@ header {
   padding: 20px 0;
   flex-basis: 80%;
 }
+.banner-container img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
 /* END HEADER */
 
 /* MAIN */
@@ -115,7 +123,8 @@ main {
 /* WELCOME PAGE */
 .welcomePage {
   background-color: var(--red-color);
-  background-image: url(images/wolverine.png);
+  /* background-image: url(images/wolverine.png); */
+  background-image: url(images/wolverine_FREDO.png);
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
@@ -124,15 +133,19 @@ main {
 }
 
 .startingImg {
-  background-image: url(images/xmen.png);
+  background-image: url(images/xmen_FREDO.png);
 }
 
+/* .startingImg {
+  background-image: url(images/TEST.png);
+} */
+
 .leftImg {
-  background-image: url(images/wolverine.png), url(images/griffes-gauche.png);
+  background-image: url(images/wolverine_FREDO.png), url(images/griffes-gauche_FREDO.png);
 }
 
 .rightImg {
-  background-image: url(images/wolverine.png), url(images/griffes-droit.png);
+  background-image: url(images/wolverine_FREDO.png), url(images/griffes-droit_FREDO.png);
 }
 
 .leftBox {
@@ -162,6 +175,7 @@ main {
 }
 
 .btn-welcome:hover {
+  background-image: url(images/iron-man-eyes-left.png);
   border: 2px solid var(--white-color);
   color: var(--red-color);
   background-color: var(--white-color);
@@ -191,6 +205,10 @@ footer {
 
 .footer-container p {
   /* font-family: 'Bangers', cursive; */
+  font-family: din-1451-lt-pro-engschrift, sans-serif;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  font-size: 1rem;
   color: var(--white-color);
   line-height: 19px;
   margin: 10px 0;

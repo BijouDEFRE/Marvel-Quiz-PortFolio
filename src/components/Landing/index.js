@@ -17,7 +17,7 @@ const Landing = () => {
     const displayBtn = btn && (
         <Fragment>
             <div className="leftBox">
-                <button className="btn-welcome">Inscription</button>
+                <button className="btn-welcome">Inscription<img src="images/iron-man-eyes-left.png" alt="" /></button>
             </div>
             <div className="rightBox">
                 <button className="btn-welcome">Connexion</button>

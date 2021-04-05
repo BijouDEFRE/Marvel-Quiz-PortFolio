@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import title from '../../images/MARVEL-QUIZ-2.svg';
 
 const Header = () => {
     return (
         <header>
             <div className="banner-container">
-                <h1><a href="/">Marvel Quiz</a></h1>
+                <img src={title} alt="MARVEL API-QUIZ" />
+                {/* <h1><a href="/">Marvel Quiz</a></h1> */}
             </div>
         </header>
     )
