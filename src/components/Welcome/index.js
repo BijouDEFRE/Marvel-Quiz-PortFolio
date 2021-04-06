@@ -4,7 +4,7 @@ const Welcome = () => {
     return (
         <div className="quiz-bg">
             <div className="container">
-                ErrorPage
+                Welcome
             </div>
             
         </div>
