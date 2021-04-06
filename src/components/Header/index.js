@@ -1,5 +1,5 @@
 import React from 'react';
-import title from '../../images/MARVEL-QUIZ-2.svg';
+import title from '../../images/MARVEL-QUIZ-3.svg';
 
 const Header = () => {
     return (

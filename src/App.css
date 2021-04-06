@@ -81,9 +81,10 @@ h3 {
 body {
   margin: 0;
   padding: 0;
-  background-image: url(images/bg-noise-texture2.png);
-  background-repeat: repeat;
-  height: 100vh;
+  background-image: url(images/Fond_matiere_BODY.png);
+  width: 100%;
+  height: 150vh;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -98,6 +99,11 @@ hr {
 
 /* HEADER */
 header {
+  background-image: url(images/Fond_matiere_HEADER.png);
+  content: fixed;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -106,8 +112,9 @@ header {
   padding: 20px 0;
   flex-basis: 80%;
 }
+
 .banner-container img {
-  max-width: 50%;
+  max-width: 38%;
   height: auto;
   display: block;
   margin: auto;
@@ -123,16 +130,23 @@ main {
 /* WELCOME PAGE */
 .welcomePage {
   background-color: var(--red-color);
+  mask: url(images/Path-2.svg);
+  mask-size: center;
+  -webkit-mask: url(images/Path-2.svg);
+  /* margin-left: 5em;
+  margin-right: 5em; */
   /* background-image: url(images/wolverine.png); */
+  background-blend-mode: multiply;
   background-image: url(images/wolverine_FREDO.png);
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
   justify-content: space-between;
-  height: 500px;
+  height: 600px;
 }
 
 .startingImg {
+  background-blend-mode: multiply;
   background-image: url(images/xmen_FREDO.png);
 }
 
@@ -141,10 +155,12 @@ main {
 } */
 
 .leftImg {
+  background-blend-mode: multiply;
   background-image: url(images/wolverine_FREDO.png), url(images/griffes-gauche_FREDO.png);
 }
 
 .rightImg {
+  background-blend-mode: multiply;
   background-image: url(images/wolverine_FREDO.png), url(images/griffes-droit_FREDO.png);
 }
 
@@ -175,7 +191,6 @@ main {
 }
 
 .btn-welcome:hover {
-  background-image: url(images/iron-man-eyes-left.png);
   border: 2px solid var(--white-color);
   color: var(--red-color);
   background-color: var(--white-color);
@@ -193,6 +208,11 @@ main {
 
 /* FOOTER */
 footer {
+  background-image: url(images/Fond_matiere_FOOTER.png);
+  content: cover;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
