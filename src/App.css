@@ -82,11 +82,12 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(images/Fond_matiere_BODY.png);
-  width: 100%;
-  height: 150vh;
-  height: auto;
+  background-size: contain;
+  /* background-repeat: repeat; */
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  /* border: solid 1px green; */
 }
 
 hr {
@@ -99,22 +100,24 @@ hr {
 
 /* HEADER */
 header {
-  background-image: url(images/Fond_matiere_HEADER.png);
-  content: fixed;
-  background-repeat: repeat;
-  width: 100%;
-  height: 100%;
+  background-image: url(images/Fond_matiere_HEADER2.png);
+  background-size: cover;
+  overflow: visible;
+  background-position: center;
   display: flex;
   justify-content: center;
+  padding-bottom: 60px;
+  /* background-color: aqua; */
 }
 
 .banner-container {
   padding: 20px 0;
   flex-basis: 80%;
+  /* background-color: #1ecc78; */
 }
 
 .banner-container img {
-  max-width: 38%;
+  max-width: 20%;
   height: auto;
   display: block;
   margin: auto;
@@ -129,6 +132,7 @@ main {
 
 /* WELCOME PAGE */
 .welcomePage {
+  margin-top: -10px;
   background-color: var(--red-color);
   mask: url(images/Path-2.svg);
   mask-size: center;
@@ -143,6 +147,7 @@ main {
   display: flex;
   justify-content: space-between;
   height: 600px;
+  /* border: 3px solid var(--green-color) */
 }
 
 .startingImg {
@@ -209,12 +214,9 @@ main {
 /* FOOTER */
 footer {
   background-image: url(images/Fond_matiere_FOOTER.png);
-  content: cover;
-  background-repeat: repeat;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
+  /* border: 3px solid var(--light-grey-color); */
 }
 
 .footer-container {
@@ -242,13 +244,13 @@ footer {
 .quiz-bg {
   margin: 0;
   padding: 0;
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   display: flex;
   justify-content: center;
 }
 
 .container {
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   padding: 30px;
   flex: 0 1 80%;
   display: flex;
@@ -259,7 +261,7 @@ footer {
 
 /* SIGNUP - LOGIN - FORGETPASSWORD */
 .signUpLoginBox {
-  background-image: url(images/bg-noise-texture.png);
+  background-image: url(images/Fond_matiere_BODY.png);
   background-repeat: repeat;
   -webkit-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   -moz-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
@@ -840,7 +842,7 @@ input:checked+.slider:before {
 .modalBtn:hover {
   background: var(--red-color);
   color: var(--white-color);
-  border: 1px solid var(--light-grey-color);
+  /* border: 1px solid var(--light-grey-color); */
 }
 /* END MODAL */
 
