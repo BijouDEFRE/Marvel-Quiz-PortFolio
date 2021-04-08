@@ -81,11 +81,13 @@ h3 {
 body {
   margin: 0;
   padding: 0;
-  background-image: url(images/bg-noise-texture2.png);
-  background-repeat: repeat;
+  background-image: url(images/Fond_matiere_BODY.png);
+  background-size: contain;
+  /* background-repeat: repeat; */
   height: 100vh;
   display: flex;
   flex-direction: column;
+  /* border: solid 1px green; */
 }
 
 hr {
@@ -103,13 +105,14 @@ header {
   background-position: center;
   display: flex;
   justify-content: center;
-  /* padding-bottom: 4em; */
+  padding-bottom: 4em;
   /* background-color: aqua; */
 }
 
 .banner-container {
   padding: 20px 0;
   flex-basis: 80%;
+  /* background-color: #1ecc78; */
 }
 
 .banner-container img {
@@ -118,7 +121,6 @@ header {
   display: block;
   margin: auto;
 }
-
 /* END HEADER */
 
 /* MAIN */
@@ -130,19 +132,30 @@ main {
 /* WELCOME PAGE */
 .welcomePage {
   background-color: var(--red-color);
+  mask: url(images/Path-2.svg);
+  mask-size: center;
+  -webkit-mask: url(images/Path-2.svg);
+  /* margin-left: 5em;
+  margin-right: 5em; */
+  /* background-image: url(images/wolverine.png); */
   background-blend-mode: multiply;
   background-image: url(images/wolverine_FREDO.png);
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
   justify-content: space-between;
-  height: 500px;
+  height: 600px;
+  /* border: 3px solid var(--green-color) */
 }
 
 .startingImg {
   background-blend-mode: multiply;
   background-image: url(images/xmen_FREDO.png);
 }
+
+/* .startingImg {
+  background-image: url(images/TEST.png);
+} */
 
 .leftImg {
   background-blend-mode: multiply;
@@ -203,6 +216,7 @@ footer {
   background-position: center;
   display: flex;
   justify-content: center;
+  /* border: 3px solid var(--light-grey-color); */
 }
 
 .footer-container {
@@ -212,6 +226,7 @@ footer {
 }
 
 .footer-container p {
+  /* font-family: 'Bangers', cursive; */
   font-family: din-1451-lt-pro-engschrift, sans-serif;
   letter-spacing: 0.1rem;
   font-weight: 400;
@@ -229,13 +244,13 @@ footer {
 .quiz-bg {
   margin: 0;
   padding: 0;
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   display: flex;
   justify-content: center;
 }
 
 .container {
-  background-color: var(--white-color);
+  /* background-color: var(--white-color); */
   padding: 30px;
   flex: 0 1 80%;
   display: flex;
@@ -247,8 +262,12 @@ footer {
 /* SIGNUP - LOGIN - FORGETPASSWORD */
 .signUpLoginBox {
   background-image: url(images/Fond_matiere_BODY.png);
-  background-size: cover;;
-  background-repeat: repeat;
+  background-size: cover;
+  /* margin-top: 2em;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto; */
+  background-repeat: no-repeat;
   -webkit-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   -moz-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
@@ -262,7 +281,7 @@ footer {
 }
 
 .formBoxLeftSignup {
-  min-height: 500px;
+  min-height: 600px;
   background-image: url(images/iron-man_Formulaire.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -270,7 +289,7 @@ footer {
 }
 
 .formBoxLeftLogin {
-  min-height: 500px;
+  min-height: 550px;
   background-image: url(images/spiderman.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -278,7 +297,7 @@ footer {
 }
 
 .formBoxLeftForget {
-  min-height: 500px;
+  min-height: 550px;
   background-image: url(images/deadpool.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -300,7 +319,7 @@ footer {
 
 .formContent {
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -320,7 +339,7 @@ footer {
   width: 100%;
   padding: 10px 0;
   font-size: 17px;
-  color: var(--white-color);
+  color: var(--red-color);
   /* text-transform: uppercase; */
   font-weight: bold;
   margin-bottom: 30px;
@@ -828,7 +847,7 @@ input:checked+.slider:before {
 .modalBtn:hover {
   background: var(--red-color);
   color: var(--white-color);
-  border: 1px solid var(--light-grey-color);
+  /* border: 1px solid var(--light-grey-color); */
 }
 /* END MODAL */
 

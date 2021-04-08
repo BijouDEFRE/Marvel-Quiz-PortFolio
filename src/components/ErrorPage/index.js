@@ -1,14 +1,14 @@
 import React from 'react';
 import notFound from "../../images/404.png";
 
-const centerh2 = {
-    textAlign: "center",
-    marginTop: "50px"
-}
+// const centerh2 = {
+//     textAlign: "center",
+//     marginTop: "50px"
+// }
 
 const centerImg = {
     display: "bloc",
-    margin: "40px auto"
+    margin: "-25px auto"
 }
 
 const ErrorPage = () => {
