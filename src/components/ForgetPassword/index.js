@@ -11,10 +11,24 @@ const ForgetPassword = () => {
     /* on vérifie notre handler */
     /* console.log(email); */
 
+    // variable d'état pour vérifier la valeur de l'email
+    const [success, setSucces] = useState(null);
+    // variable d'état pour afficher un message d'erreur
+    const [error, setError] = useState(null);
+
     const handleSubmit = event => {
         event.preventDefault();
         // méthode de firebase
         firebase.passwordReset(email)
+        .then(() => {
+            // on vide la variable dans un 1er temps
+            setError(null);
+            // on affiche le message d'envoie (API Firebase)
+            setSucces(`Mail de réinitialisation de mot de passe effectué sur ${email}`)
+        })
+        .catch(error => {
+
+        })
     }
 
     // gestion de l'affichage du bouton
@@ -27,6 +41,13 @@ const ForgetPassword = () => {
                 </div>
                 <div className="formBoxRight">
                     <div className="formContent">
+
+                        {/* Gestion de l'affichage du message */}
+                        { success && <span style={{
+                            border: "1px solid green",
+                            color: "green",
+                            color: "white"
+                        }}>{success}</span> }
                         
                         <h2>Mot de passe oublié ?</h2>
                         <form onSubmit={handleSubmit}>
