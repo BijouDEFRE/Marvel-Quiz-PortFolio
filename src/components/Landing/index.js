@@ -17,12 +17,12 @@ const Landing = () => {
     }, [])
 
     const setLeftImg = () => {
-        console.log('Je suis dans setLeftImg')
+        // console.log('Je suis dans setLeftImg')
         refWolverine.current.classList.add("leftImg");
     }
 
     const setRightImg = () => {
-        console.log('Je suis dans setRightImg')
+        // console.log('Je suis dans setRightImg')
         refWolverine.current.classList.add("rightImg");
     }
 

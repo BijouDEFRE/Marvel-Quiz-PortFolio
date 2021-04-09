@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FirebaseContext } from '../Firebase';
 
-const ForgetPassword = () => {
+// je renseigne le props pour pouvoir accéder aux "target"
+const ForgetPassword = (props) => {
 
     // mise en place du context
     const firebase = useContext(FirebaseContext);
@@ -24,10 +25,18 @@ const ForgetPassword = () => {
             // on vide la variable dans un 1er temps
             setError(null);
             // on affiche le message d'envoie (API Firebase)
-            setSucces(`Mail de réinitialisation de mot de passe effectué sur ${email}`)
+            setSucces(`Mail de réinitialisation de mot de passe effectué sur ${email}`);
+            setEmail("");
+
+            setTimeout(() => {
+                // on redirige vers la route /
+                props.history.push('/login')
+            }, 5000)
         })
         .catch(error => {
-
+            setError(error);
+            // on vide les champs résent de le formulaire
+            setEmail("");
         })
     }
 
@@ -45,9 +54,11 @@ const ForgetPassword = () => {
                         {/* Gestion de l'affichage du message */}
                         { success && <span style={{
                             border: "1px solid green",
-                            color: "green",
+                            background: "green",
                             color: "white"
                         }}>{success}</span> }
+
+                        { error && <span>{error.message}</span> }
                         
                         <h2>Mot de passe oublié ?</h2>
                         <form onSubmit={handleSubmit}>

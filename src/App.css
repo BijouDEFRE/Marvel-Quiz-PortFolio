@@ -332,10 +332,6 @@ footer {
 }
 
 .formContent .inputBox input {
-  /* test de style */
-  font-family: badaboom-pro;
-  letter-spacing: 0.2rem;
-  /* test de style */
   width: 100%;
   padding: 10px 0;
   font-size: 17px;
@@ -350,12 +346,16 @@ footer {
 }
 
 .formContent .inputBox label {
+  /* test de style */
+  font-family: badaboom-pro;
+  letter-spacing: 0.1rem;
+  /* test de style */
   color: var(--white-color);
   position: absolute;
   top: 0;
   left: 0;
   padding: 10px 0;
-  font-size: 17px;
+  font-size: 18px;
   pointer-events: none;
   -webkit-transition: 0.2s ease-in;
   -moz-transition: 0.2s ease-in;
@@ -374,6 +374,10 @@ footer {
 
 /* Form buttons */
 .formContent button {
+  /* test de style */
+  font-family: badaboom-pro;
+  letter-spacing: 0.2rem;
+  /* test de style */
   margin-left: 0;
   display: block;
   margin: 0 auto 20px;
@@ -381,7 +385,7 @@ footer {
   background-color: transparent;
   color: var(--white-color);
   padding: 7px;
-  font-size: 15px;
+  font-size: 18px;
   border-radius: 5px;
 }
 
@@ -415,9 +419,15 @@ button[disabled]:hover {
 }
 
 .simpleLink {
+  /* test de style */
+  font-family: badaboom-pro;
+  line-height: 200%;
+  letter-spacing: 0.1rem;
+  font-size: 1em;
+  /* test de style */
   color: var(--white-color);
   text-decoration: none;
-  font-size: 12px;
+  /* font-size: 12px; */
 }
 
 .simpleLink:hover {
