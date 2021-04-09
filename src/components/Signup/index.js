@@ -38,7 +38,7 @@ const Signup = (props) => {
     const { pseudo, email, password, confirmPassword } = loginData;
 
     const btn = pseudo === '' || email === '' || password === '' || password !== confirmPassword
-    ? <button disabled>Inscrition</button> : <button>Inscrition</button>
+    ? <button className="btn-welcome" disabled>Inscrition</button> : <button className="btn-welcome">Inscrition</button>
 
     // gestion des erreurs
     const errorMsg = error !== '' && <span>{}error.message</span>

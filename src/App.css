@@ -32,6 +32,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap');
 /* Adobe Fonts */
 @import url("https://use.typekit.net/qvv0uzc.css");
+/* font-family: badaboom-pro,sans-serif;
+font-weight: 400;
+font-style: normal; */
 
 :root {
   --white-color: #ffffff;
@@ -168,6 +171,10 @@ main {
 }
 
 .btn-welcome {
+  /* test de style */
+  font-family: badaboom-pro;
+  font-size: 1em;
+  letter-spacing: 0.1rem;
   border: 2px solid var(--white-color);
   color: var(--white-color);
   padding: 12px 25px;
@@ -212,7 +219,8 @@ footer {
 }
 
 .footer-container p {
-  font-family: din-1451-lt-pro-engschrift, sans-serif;
+  font-family: badaboom-pro, sans-serif;
+  /* font-family: din-1451-lt-pro-engschrift, sans-serif; */
   letter-spacing: 0.1rem;
   font-weight: 400;
   font-size: 1rem;
@@ -305,6 +313,10 @@ footer {
 }
 
 .formContent h2 {
+  /* test de style */
+  font-family: badaboom-pro;
+  letter-spacing: 0.2rem;
+  /* test de style */
   margin: 0 0 40px 0;
   padding: 0;
   color: var(--white-color);
@@ -312,11 +324,18 @@ footer {
 }
 
 .formContent .inputBox {
+  /* test de style */
+  font-family: badaboom-pro;
+  /* test de style */
   position: relative;
   height: 80px;
 }
 
 .formContent .inputBox input {
+  /* test de style */
+  font-family: badaboom-pro;
+  letter-spacing: 0.2rem;
+  /* test de style */
   width: 100%;
   padding: 10px 0;
   font-size: 17px;
@@ -384,6 +403,11 @@ button[disabled]:hover {
 }
 
 .linkContainer {
+  /* test de style */
+  font-family: badaboom-pro;
+  letter-spacing: 0.2rem;
+  font-size: 1em;
+  /* test de style */
   height: 50px;
   margin-top: 35px;
   padding-top: 15px;
