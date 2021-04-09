@@ -31,6 +31,7 @@ const Welcome = props => {
             <p>Loading...</p>
         </Fragment>
     ) : (
+        // si le user existe, on renvoie vers la page quiz
         <div className="quiz-bg">
             <div className="container">
                 <Logout />
