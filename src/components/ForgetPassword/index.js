@@ -29,7 +29,7 @@ const ForgetPassword = (props) => {
             setEmail("");
 
             setTimeout(() => {
-                // on redirige vers la route /
+                // on redirige vers la route /login après 5 secondes
                 props.history.push('/login')
             }, 5000)
         })
@@ -41,7 +41,7 @@ const ForgetPassword = (props) => {
     }
 
     // gestion de l'affichage du bouton
-    const disabled = email === ""
+    const disabled = email === "";
 
     return (
         <div className="signUpLoginBox">

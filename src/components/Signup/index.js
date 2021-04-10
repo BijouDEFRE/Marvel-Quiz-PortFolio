@@ -23,9 +23,16 @@ const Signup = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        const { email, password } = loginData;
+        const { email, password, pseudo } = loginData;
+        // création de la BDD avec Firestore cloud (noSQL)
         firebase.signupUser(email, password)
-        .then(user => {
+        .then(authUser => {
+            return firebase.user(authUser.user.userId).set({
+                pseudo,
+                email
+            })
+        })
+        .then(() => {
             setloginData({...data});
             props.history.push('/welcome')
         })
@@ -41,7 +48,7 @@ const Signup = (props) => {
     ? <button className="btn-welcome" disabled>Inscrition</button> : <button className="btn-welcome">Inscrition</button>
 
     // gestion des erreurs
-    const errorMsg = error !== '' && <span>{}error.message</span>
+    const errorMsg = error !== '' && <span>{error.message}</span>
 
     return (
         <div className="signUpLoginBox">

@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const config = {
     apiKey: "AIzaSyB6aUEcKGB97V7p1LHWQg-j_mL6TsF2dw4",
@@ -14,9 +15,11 @@ class Firebase {
     constructor() {
         app.initializeApp(config);
         this.auth = app.auth();
+        // Firestore Cloud gestionnaire noSQL fourni par Firebase
+        this.db = app.firestore();
     }
 
-    // insriptions
+    // Insriptions
     signupUser = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
 
@@ -27,8 +30,12 @@ class Firebase {
     //Déconnexions
     signoutUser = () => this.auth.signOut();
 
-    //Récupération du mot de passe
+    // Récupération du mot de passe
     passwordReset = email => this.auth.sendPasswordResetEmail(email);
+
+    /*Exemple fourni par la Doc de Firebase :
+    https://firebase.google.com/docs/firestore/data-model */
+    user = userId => this.db.doc(`users/${userId}`);
 }
 
 export default Firebase;

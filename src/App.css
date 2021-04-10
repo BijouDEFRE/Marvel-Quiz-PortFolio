@@ -255,7 +255,7 @@ footer {
 /* SIGNUP - LOGIN - FORGETPASSWORD */
 .signUpLoginBox {
   background-image: url(images/Fond_matiere_BODY.png);
-  background-size: cover;;
+  background-size: cover;
   background-repeat: repeat;
   -webkit-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   -moz-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
@@ -294,6 +294,8 @@ footer {
 }
 
 .formBoxRight {
+  display: flex;
+  justify-content: center;
   flex: 0 1 50%;
 }
 
@@ -317,7 +319,7 @@ footer {
   font-family: badaboom-pro;
   letter-spacing: 0.2rem;
   /* test de style */
-  margin: 0 0 40px 0;
+  margin: 0 0 15px 0;
   padding: 0;
   color: var(--white-color);
   text-transform: uppercase;
@@ -328,7 +330,7 @@ footer {
   font-family: badaboom-pro;
   /* test de style */
   position: relative;
-  height: 80px;
+  /* height: 80px; */
 }
 
 .formContent .inputBox input {
@@ -338,7 +340,7 @@ footer {
   color: var(--white-color);
   /* text-transform: uppercase; */
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   border: none;
   background: transparent;
   border-bottom: 1px solid var(--white-color);

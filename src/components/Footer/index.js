@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
     return (
         <footer>
             <div className="footer-container">
-                <p>Projet réalisé par DonkeyGeek - 2020</p>
-                <p>Les icônes Wolverine, Spider-Man, Spider-Man, Iron-Man</p>
+                <p>Projet réalisé grace à l'éxélent tuto de DonkeyGeek - 2021</p>
+                <p>Les images des personnages marvel sont issus du site www.hiclipart.com</p>
             </div>
         </footer>
     )
