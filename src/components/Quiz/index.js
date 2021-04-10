@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Levels from '../Levels';
+import ProgressBar from '../ProgressBar';
 
 class Quiz extends Component {
 
@@ -12,7 +14,9 @@ class Quiz extends Component {
         // console.log(props.userData.pseudo);
         return (
             <div>
-                <h2>Pseudo: {pseudo}</h2>
+                {/* <h2>Pseudo: {pseudo}</h2> */}
+                <Levels />
+                <ProgressBar />
             </div>
         )
     }
