@@ -16,9 +16,15 @@ class Quiz extends Component {
         options: [],
         questionId: 0,
         btnDisabled: true,
-        userAnswer: null
+        userAnswer: null,
+        scor: 0
     }
 
+    /* on récupère les bonnes réponses obtenues par la variable :
+    const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest)
+    cette fois on utilise pas le destructuring, on récupère tout */
+    storedDataRef = React.createRef();
+    
     // on charge depuis le composant quizMarvel
     loadQuestions = quizz => {
         // console.log(level);
@@ -26,6 +32,12 @@ class Quiz extends Component {
         const fetchedArrayQuiz = QuizMarvel[0].quizz[quizz];
         // console.log(fetchedArrayQuiz);
         if (fetchedArrayQuiz.length >= this.state.maxQuestions) {
+            
+            /* on récupère les bonnes réponses obtenues par la variable :
+            const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest)
+            cette fois on utilise pas le destructuring, on récupère tout */
+            this.storedDataRef.current = fetchedArrayQuiz;
+            // console.log(this.storedDataRef.current)
 
             // on créer un nouvel objet (tableau) pour cibler les éléments que l'on souhaite afficher
             const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest);
@@ -54,6 +66,17 @@ class Quiz extends Component {
                 options: this.state.storedQuestions[this.state.questionId].options
             })
         }
+        
+        // si le state actuel est différent du prevState, alors on passe à la question suivante
+        if (this.state.questionId !== prevState.questionId) {
+            this.setState({
+                question: this.state.storedQuestions[this.state.questionId].question,
+                options: this.state.storedQuestions[this.state.questionId].options,
+                // le state est modifié donc on réinitialise
+                userAnswer: null,
+                btnDisabled: true
+            })
+        }
     }
 
     // on créer une méthode pour prendre en compte le changement de state (onClick)
@@ -62,6 +85,27 @@ class Quiz extends Component {
             userAnswer: selectedAnswer,
             btnDisabled: false
         })
+    }
+
+    nextQuestion= () => {
+        if (this.state.questionId === this.state.maxQuestions -1) {
+            // End
+        } else {
+            this.setState(prevState => ({
+                questionId: prevState.questionId +1
+            }))
+        }
+
+        // ici on cible la réponse du User de la questionId et la réponse attendue
+        const goodAnswer = this.storedDataRef.current[this.state.questionId].answer;
+        if (this.state.userAnswer === goodAnswer) {
+            this.setState( prevState => ({
+                /* si la réponse du User = réponse attendue (prevState)
+                on incrémente le score + 1, comme on modifie la data de notre state
+                nous pouvons réactivé la méthode componentDidUpdate */
+                score: prevState.score + 1
+            }))
+        }
     }
     
     render() {
@@ -94,7 +138,13 @@ class Quiz extends Component {
 
                 { displayOptions }
 
-                <button disabled ={this.state.btnDisabled} className="btnSubmit">Suivant</button>
+                <button
+                    disabled ={this.state.btnDisabled}
+                    className="btnSubmit"
+                    onClick={this.nextQuestion}
+                >
+                    Suivant
+                </button>
             </div>
         )
     }
