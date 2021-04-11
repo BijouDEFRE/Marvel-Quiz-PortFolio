@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { QuizMarvel } from '../quizMarvel';
 import Levels from '../Levels';
 import ProgressBar from '../ProgressBar';
+
+toast.configure();
 
 class Quiz extends Component {
 
@@ -17,13 +21,35 @@ class Quiz extends Component {
         questionId: 0,
         btnDisabled: true,
         userAnswer: null,
-        scor: 0
+        score: 0,
+        showWelcomeMsg: false
     }
 
     /* on récupère les bonnes réponses obtenues par la variable :
     const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest)
     cette fois on utilise pas le destructuring, on récupère tout */
     storedDataRef = React.createRef();
+
+    // gestion de l'affichage du toaster user
+    showWelcomeMsg = pseudo => {
+        if(!this.state.showWelcomeMsg) {
+
+            this.setState({
+                showWelcomeMsg: true
+            })
+
+            toast.warn(`Bienvenue ${pseudo} et bonne chance !`, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                bodyClassName: "toastify-color-welcome",
+            });
+        }
+    }
     
     // on charge depuis le composant quizMarvel
     loadQuestions = quizz => {
@@ -77,6 +103,10 @@ class Quiz extends Component {
                 btnDisabled: true
             })
         }
+
+        if (this.props.userData.pseudo) {
+            this.showWelcomeMsg(this.props.userData.pseudo)
+        }
     }
 
     // on créer une méthode pour prendre en compte le changement de state (onClick)
@@ -105,6 +135,28 @@ class Quiz extends Component {
                 nous pouvons réactivé la méthode componentDidUpdate */
                 score: prevState.score + 1
             }))
+
+            toast.success('Bravo + 1', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                bodyClassName: "toastify-color",
+            });
+        } else {
+            toast.error('Dommage 0', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                bodyClassName: "toastify-color",
+            });
         }
     }
     
