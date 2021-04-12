@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { QuizMarvel } from '../quizMarvel';
 import Levels from '../Levels';
 import ProgressBar from '../ProgressBar';
+import QuizOver from '../QuizOver';
 
 toast.configure();
 
@@ -22,7 +23,8 @@ class Quiz extends Component {
         btnDisabled: true,
         userAnswer: null,
         score: 0,
-        showWelcomeMsg: false
+        showWelcomeMsg: false,
+        quizEnd: false
     }
 
     /* on récupère les bonnes réponses obtenues par la variable :
@@ -119,9 +121,17 @@ class Quiz extends Component {
         })
     }
 
+    // on créer une méthode pour terminer la "page" quand on à fini les 10 questions
+    gameOver = () => {
+        this.setState({
+            quizEnd: true
+        })
+    }
+
     nextQuestion= () => {
         if (this.state.questionId === this.state.maxQuestions -1) {
-            // End
+            // console.log("Game Over");
+            this.gameOver()
         } else {
             this.setState(prevState => ({
                 questionId: prevState.questionId +1
@@ -183,8 +193,13 @@ class Quiz extends Component {
             )
         })
 
-        return (
-            <div>
+        // gestion de la fin du quiz on passe tout le return dans le nouveau state
+        return this.state.quizEnd ? (
+            <quizOver />
+        )
+        : 
+        (
+            <Fragment>
                 {/* <h2>Pseudo: {pseudo}</h2> */}
                 <Levels />
                 <ProgressBar />
@@ -199,7 +214,7 @@ class Quiz extends Component {
                 >
                     Suivant
                 </button>
-            </div>
+            </Fragment>
         )
     }
 }
