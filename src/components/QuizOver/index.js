@@ -10,6 +10,9 @@ const QuizOver = React.forwardRef((props, ref) => {
     // console.log(props);
     // console.log(ref);
 
+    // ici on peut faire le destructuring pour avoir acces aux "props"
+    const {levelsNames, score, maxQuestions, quizLevel, percent} = props;
+
     // on récupère toutes les questions
     const [asked, setAsked] = useState([]);
     // console.log(asked);
@@ -19,6 +22,47 @@ const QuizOver = React.forwardRef((props, ref) => {
         setAsked(ref.current)
         // on créer la dépendance pour récupérer les datas
     }, [ref])
+
+    const averageGrade = maxQuestions / 2;
+    const decision = score >= averageGrade ? (
+        <Fragment>
+            <div className="stepsBtnContainer">
+     {
+         quizLevel < levelsNames.length ?
+         (
+             <Fragment>
+                 <p className="successMsg">Bravo, passez au niveau suivant</p>
+                 <button className="btnResult success">Niveau Suivant</button>
+             </Fragment>
+         )
+         :
+         (
+             <Fragment>
+                 <p className="successMsg">Bravo, vous êtes un expert !</p>
+                 <button className="btnResult gameOver">Niveau Suivant</button>
+             </Fragment>
+         )
+     }       
+        </div>
+        <div className="percentage">
+            <div className="progressPercent">Réussite : {percent}</div>
+            <div className="progressPercent">Note : {score}/{maxQuestions}</div>
+        </div>
+        </Fragment>
+    )
+    :
+    (
+        <Fragment>
+        <div className="stepsBtnContainer">
+            <p className="successMsg">Vous avez échoué !</p>
+        </div>
+
+        <div className="percentage">
+            <div className="progressPercent">Réussite : {percent}</div>
+            <div className="progressPercent">Note : {score}/{maxQuestions}</div>
+        </div>
+        </Fragment>
+    )
 
     // on "map" sur le résultat afin de recréer un tableau avec les datats récupérées
     // on créer une function pour pouvoir l'afficher dans le JSX
@@ -39,14 +83,8 @@ const QuizOver = React.forwardRef((props, ref) => {
 
     return (
         <Fragment>
-            <div className="stepsBtnContainer">
-                <p className="successMsg">Bravo vous êtes un expert !</p>
-                <button className="btnResult success">Niveau Suivant</button>
-            </div>
-            <div className="percentage">
-                <div className="progressPercent">Réussite : 10%</div>
-                <div className="progressPercent">Note : 10/10</div>
-            </div>
+            
+            { decision }
 
             <hr />
             <p>Les réponses aux questions posées :</p>
@@ -56,7 +94,7 @@ const QuizOver = React.forwardRef((props, ref) => {
                     <thead>
                         <tr>
                             <th>N°</th>
-                            <th>Question</th>
+                            <th>Questions</th>
                             <th>Réponses</th>
                             <th>Infos</th>
                         </tr>
@@ -66,7 +104,6 @@ const QuizOver = React.forwardRef((props, ref) => {
                     </tbody>
                 </table>
             </div>
-
         </Fragment>
     )
 })

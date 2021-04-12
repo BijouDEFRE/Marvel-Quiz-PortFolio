@@ -13,7 +13,7 @@ class Quiz extends Component {
     // on charge les tableaux contenus dans le composant quizMarvel
     // on renseigne les différents state qui nous interresse ex. affichage du bouton...
     state = {
-        levelsNames: ["debutant", "confirme", "expert"],
+        levelNames: ["debutant", "confirme", "expert"],
         quizLevel: 0,
         maxQuestions: 10,
         storedQuestions: [],
@@ -83,7 +83,7 @@ class Quiz extends Component {
     
     // on créer un tableau depuis le composant quizMarvel
     componentDidMount() {
-        this.loadQuestions(this.state.levelsNames[this.state.quizLevel]);
+        this.loadQuestions(this.state.levelNames[this.state.quizLevel]);
     }
 
     // grace à la mise à jour du state nous avons accès à la méthode du cicle de vie :
@@ -121,17 +121,30 @@ class Quiz extends Component {
         })
     }
 
+    getPercentage = (maxQuest, ourScore) => (ourScore / maxQuest) * 100;
+
     // on créer une méthode pour terminer la "page" quand on à fini les 10 questions
     gameOver = () => {
-        this.setState({
-            quizEnd: true
-        })
+
+        const gradePercent = this.getPercentage(this.state.maxQuestions, this.score);
+        if (gradePercent >= 50) {
+            this.setState({
+                quizLevel: this.state.quizLevel + 1,
+                percent: gradePercent,
+                quizEnd: true
+            })
+        } else {
+            this.setState({
+                percent: gradePercent,
+                quizEnd: true
+            })
+        }
     }
 
     nextQuestion= () => {
         if (this.state.questionId === this.state.maxQuestions -1) {
             // console.log("Game Over");
-            this.gameOver()
+            this.gameOver();
         } else {
             this.setState(prevState => ({
                 questionId: prevState.questionId +1
@@ -194,11 +207,16 @@ class Quiz extends Component {
         })
 
         // gestion de la fin du quiz on passe tout le return dans le nouveau state
-        return !this.state.quizEnd ? (
+        return this.state.quizEnd ? (
             <QuizOver
-            // ici on passe un "props" afin de le récupérer depuis notre composant
+            // ici on passe un "props" afin de le récupérer depuis notre composant (QuizOver)
                 ref={this.storedDataRef}
                 props="Je suis une props ordinaire"
+                levelsNames={this.state.levelNames}
+                score={this.state.score}
+                maxQuestions={this.state.maxQuestions}
+                quizLevel={this.state.quizLevel}
+                percent={this.state.percent}
             />
         )
         : 
