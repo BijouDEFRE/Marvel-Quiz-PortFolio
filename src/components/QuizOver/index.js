@@ -27,10 +27,11 @@ const QuizOver = React.forwardRef((props, ref) => {
         // pour cela, il faut créer un "key" (id)
         return (
             <tr key={datas.id}>
+                <td>{datas.id + 1}</td>
                 <td>{datas.question}</td>
                 <td>{datas.answer}</td>
                 <td>
-                    <button className="btnInfo">Ifos</button>
+                    <button className="btnInfo">Infos</button>
                 </td>
             </tr>
         )
@@ -54,17 +55,14 @@ const QuizOver = React.forwardRef((props, ref) => {
                 <table className="answers">
                     <thead>
                         <tr>
+                            <th>N°</th>
                             <th>Question</th>
                             <th>Réponses</th>
                             <th>Infos</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Question</td>
-                            <td>Réponses</td>
-                            <td>Infos</td>
-                        </tr>
+                        { datasAnswer }
                     </tbody>
                 </table>
             </div>
