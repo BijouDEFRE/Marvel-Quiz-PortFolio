@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 /* afin de récupérer les "props/refs" dans un composant de type function,
 on doit utiliser la technique "React.forwardRef".
@@ -7,8 +7,35 @@ exemple Warnig dans la console: Function components cannot be given refs.
 Attempts to access this ref will fail. Did you mean to use React.forwardRef()?*/
 
 const QuizOver = React.forwardRef((props, ref) => {
-    console.log(props);
-    console.log(ref);
+    // console.log(props);
+    // console.log(ref);
+
+    // on récupère toutes les questions
+    const [asked, setAsked] = useState([]);
+    // console.log(asked);
+
+    // cette fonction s'enclanche à chaque modification de "ref"
+    useEffect(() => {
+        setAsked(ref.current)
+        // on créer la dépendance pour récupérer les datas
+    }, [ref])
+
+    // on "map" sur le résultat afin de recréer un tableau avec les datats récupérées
+    // on créer une function pour pouvoir l'afficher dans le JSX
+    const datasAnswer = asked.map(datas => {
+        // on créer un élément "parent" que l'on veut répéter plusieurs fois
+        // pour cela, il faut créer un "key" (id)
+        return (
+            <tr key={datas.id}>
+                <td>{datas.question}</td>
+                <td>{datas.answer}</td>
+                <td>
+                    <button className="btnInfo">Ifos</button>
+                </td>
+            </tr>
+        )
+    })
+
     return (
         <Fragment>
             <div className="stepsBtnContainer">
@@ -22,6 +49,26 @@ const QuizOver = React.forwardRef((props, ref) => {
 
             <hr />
             <p>Les réponses aux questions posées :</p>
+
+            <div className="answerContainer">
+                <table className="answers">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Réponses</th>
+                            <th>Infos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Question</td>
+                            <td>Réponses</td>
+                            <td>Infos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </Fragment>
     )
 })
