@@ -194,8 +194,12 @@ class Quiz extends Component {
         })
 
         // gestion de la fin du quiz on passe tout le return dans le nouveau state
-        return this.state.quizEnd ? (
-            <QuizOver />
+        return !this.state.quizEnd ? (
+            <QuizOver
+            // ici on passe un "props" afin de le récupérer depuis notre composant
+                ref={this.storedDataRef}
+                props="Je suis une props ordinaire"
+            />
         )
         : 
         (
