@@ -212,7 +212,8 @@ class Quiz extends Component {
                     className="btnSubmit"
                     onClick={this.nextQuestion}
                 >
-                    Suivant
+                    {/* gestion de l'affichage du bouton selon le state */}
+                    { this.state.questionId < this.state.maxQuestions -1 ? "Suivant" : "Terminer" }
                 </button>
             </Fragment>
         )
