@@ -195,7 +195,7 @@ class Quiz extends Component {
 
         // gestion de la fin du quiz on passe tout le return dans le nouveau state
         return this.state.quizEnd ? (
-            <quizOver />
+            <QuizOver />
         )
         : 
         (
