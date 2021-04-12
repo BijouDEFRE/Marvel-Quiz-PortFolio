@@ -202,7 +202,11 @@ class Quiz extends Component {
             <Fragment>
                 {/* <h2>Pseudo: {pseudo}</h2> */}
                 <Levels />
-                <ProgressBar />
+
+                <ProgressBar
+                    questionId={this.state.questionId}
+                    maxQuestions={this.state.maxQuestions}
+                />
                 <h2>{this.state.question}</h2>
 
                 { displayOptions }
