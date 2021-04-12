@@ -9,9 +9,10 @@ Attempts to access this ref will fail. Did you mean to use React.forwardRef()?*/
 const QuizOver = React.forwardRef((props, ref) => {
     // console.log(props);
     // console.log(ref);
-
+    
     // ici on peut faire le destructuring pour avoir acces aux "props"
-    const {levelsNames, score, maxQuestions, quizLevel, percent} = props;
+    const {levelNames, score, maxQuestions, quizLevel, percent} = props;
+    // console.log(props);
 
     // on récupère toutes les questions
     const [asked, setAsked] = useState([]);
@@ -28,10 +29,10 @@ const QuizOver = React.forwardRef((props, ref) => {
         <Fragment>
             <div className="stepsBtnContainer">
      {
-         quizLevel < levelsNames.length ?
+         quizLevel < levelNames.length ?
          (
              <Fragment>
-                 <p className="successMsg">Bravo, passez au niveau suivant</p>
+                 <p className="successMsg">Bravo, passez au niveau suivant !</p>
                  <button className="btnResult success">Niveau Suivant</button>
              </Fragment>
          )
@@ -45,7 +46,7 @@ const QuizOver = React.forwardRef((props, ref) => {
      }       
         </div>
         <div className="percentage">
-            <div className="progressPercent">Réussite : {percent}</div>
+            <div className="progressPercent">Réussite : {percent} %</div>
             <div className="progressPercent">Note : {score}/{maxQuestions}</div>
         </div>
         </Fragment>
@@ -58,7 +59,7 @@ const QuizOver = React.forwardRef((props, ref) => {
         </div>
 
         <div className="percentage">
-            <div className="progressPercent">Réussite : {percent}</div>
+            <div className="progressPercent">Réussite : {percent} %</div>
             <div className="progressPercent">Note : {score}/{maxQuestions}</div>
         </div>
         </Fragment>

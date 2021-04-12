@@ -40,7 +40,7 @@ class Quiz extends Component {
                 showWelcomeMsg: true
             })
 
-            toast.info(`Bienvenue \ ${pseudo} !`, {
+            toast.info(`Bienvenue ${pseudo} !`, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -48,8 +48,6 @@ class Quiz extends Component {
                 pauseOnHover: true,
                 draggable: false,
                 progress: undefined,
-                allowHtml: true,
-                useCss: true,
                 bodyClassName: "toastify-color-welcome",
             });
         }
@@ -121,12 +119,14 @@ class Quiz extends Component {
         })
     }
 
+    // on créer une méthode pour calculer le pourcentage de bonnes réponses
     getPercentage = (maxQuest, ourScore) => (ourScore / maxQuest) * 100;
 
     // on créer une méthode pour terminer la "page" quand on à fini les 10 questions
     gameOver = () => {
-
-        const gradePercent = this.getPercentage(this.state.maxQuestions, this.score);
+        // on assigne le score dans une variable
+        const gradePercent = this.getPercentage(this.state.maxQuestions, this.state.score);
+        // on créer une condition pour passer au niveau supérieur
         if (gradePercent >= 50) {
             this.setState({
                 quizLevel: this.state.quizLevel + 1,
@@ -212,7 +212,7 @@ class Quiz extends Component {
             // ici on passe un "props" afin de le récupérer depuis notre composant (QuizOver)
                 ref={this.storedDataRef}
                 props="Je suis une props ordinaire"
-                levelsNames={this.state.levelNames}
+                levelNames={this.state.levelNames}
                 score={this.state.score}
                 maxQuestions={this.state.maxQuestions}
                 quizLevel={this.state.quizLevel}
@@ -234,8 +234,8 @@ class Quiz extends Component {
                 { displayOptions }
 
                 <button
-                    disabled ={this.state.btnDisabled}
                     className="btnSubmit"
+                    disabled ={this.state.btnDisabled}
                     onClick={this.nextQuestion}
                 >
                     {/* gestion de l'affichage du bouton selon le state */}

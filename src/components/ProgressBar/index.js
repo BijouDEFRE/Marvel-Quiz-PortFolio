@@ -12,7 +12,7 @@ const ProgressBar = ({questionId, maxQuestions}) => {
     const actualQuestion = questionId + 1;
     const progresPercent = getWidth(maxQuestions, actualQuestion);
 
-    console.log(progresPercent)
+    // console.log(progresPercent)
     
     return (
         <Fragment>
