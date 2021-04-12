@@ -38,14 +38,16 @@ class Quiz extends Component {
                 showWelcomeMsg: true
             })
 
-            toast.warn(`Bienvenue ${pseudo} et bonne chance !`, {
+            toast.info(`Bienvenue \ ${pseudo} !`, {
                 position: "top-right",
-                autoClose: 2000,
+                autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: false,
                 progress: undefined,
+                allowHtml: true,
+                useCss: true,
                 bodyClassName: "toastify-color-welcome",
             });
         }
@@ -144,7 +146,7 @@ class Quiz extends Component {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                bodyClassName: "toastify-color",
+                bodyClassName: "toastify-success",
             });
         } else {
             toast.error('Dommage 0', {
@@ -155,7 +157,7 @@ class Quiz extends Component {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                bodyClassName: "toastify-color",
+                bodyClassName: "toastify-error",
             });
         }
     }
