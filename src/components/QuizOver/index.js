@@ -26,6 +26,6 @@ const QuizOver = React.forwardRef((props, ref) => {
     )
 })
 /* pour éviter de recharger les composants dont le state n'a pas été modifié
-on utilise React.memo (équivalent à pureComponent dans élément de type class)
+on utilise React.memo => (équivalent à pureComponent dans élément de type class)
 ici nous sommes dans élémnet de type function on doit donc utiliser React.memo */
 export default React.memo(QuizOver);
