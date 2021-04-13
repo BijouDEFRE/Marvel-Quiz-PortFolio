@@ -11,8 +11,8 @@ const QuizOver = React.forwardRef((props, ref) => {
     // console.log(ref);
     
     // ici on peut faire le destructuring pour avoir acces aux "props"
-    const {levelNames, score, maxQuestions, quizLevel, percent} = props;
-    // console.log(props);
+    const {levelNames, score, maxQuestions, quizLevel, percent, loadLevelQuestions} = props;
+    // console.log(percent);
 
     // on récupère toutes les questions
     const [asked, setAsked] = useState([]);
@@ -33,14 +33,27 @@ const QuizOver = React.forwardRef((props, ref) => {
          (
              <Fragment>
                  <p className="successMsg">Bravo, passez au niveau suivant !</p>
-                 <button className="btnResult success">Niveau Suivant</button>
+                 {/* ici on rajoute un évenement (onClick)
+                 qui va lancer la méthode loadLevelQuestions
+                 qui se trouve dans le composant Quiz */}
+                 <button
+                    className="btnResult success"
+                    onClick={() => loadLevelQuestions(quizLevel)}
+                 >
+                    Niveau Suivant
+                 </button>
              </Fragment>
          )
          :
          (
              <Fragment>
                  <p className="successMsg">Bravo, vous êtes un expert !</p>
-                 <button className="btnResult gameOver">Niveau Suivant</button>
+                 <button
+                    className="btnResult gameOver"
+                    onClick={() => loadLevelQuestions(0)}
+                >
+                    Accueil
+                </button>
              </Fragment>
          )
      }       

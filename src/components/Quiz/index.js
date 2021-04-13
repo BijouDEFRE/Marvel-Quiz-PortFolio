@@ -10,27 +10,31 @@ toast.configure();
 
 class Quiz extends Component {
 
-    // on charge les tableaux contenus dans le composant quizMarvel
-    // on renseigne les différents state qui nous interresse ex. affichage du bouton...
-    state = {
-        levelNames: ["debutant", "confirme", "expert"],
-        quizLevel: 0,
-        maxQuestions: 10,
-        storedQuestions: [],
-        question: null,
-        options: [],
-        questionId: 0,
-        btnDisabled: true,
-        userAnswer: null,
-        score: 0,
-        showWelcomeMsg: false,
-        quizEnd: false
+    // pour éviter de recopier ce "state" dans des nouvelles méthodes nous créeons un constructor
+    constructor(props) {
+        super(props)
+        // on charge les tableaux contenus dans le composant quizMarvel
+        // on renseigne les différents state qui nous interresse ex. affichage du bouton...
+        this.initialState = {
+            levelNames: ["debutant", "confirme", "expert"],
+            quizLevel: 0,
+            maxQuestions: 10,
+            storedQuestions: [],
+            question: null,
+            options: [],
+            questionId: 0,
+            btnDisabled: true,
+            userAnswer: null,
+            score: 0,
+            showWelcomeMsg: false,
+            quizEnd: false
+        }
+        this.state = this.initialState;
+        /* on récupère les bonnes réponses obtenues par la variable :
+        const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest)
+        cette fois on utilise pas le destructuring, on récupère tout */
+        this.storedDataRef = React.createRef();
     }
-
-    /* on récupère les bonnes réponses obtenues par la variable :
-    const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest)
-    cette fois on utilise pas le destructuring, on récupère tout */
-    storedDataRef = React.createRef();
 
     // gestion de l'affichage du toaster user
     showWelcomeMsg = pseudo => {
@@ -142,7 +146,7 @@ class Quiz extends Component {
     }
 
     nextQuestion= () => {
-        if (this.state.questionId === this.state.maxQuestions -1) {
+        if (this.state.questionId === this.state.maxQuestions - 1) {
             // console.log("Game Over");
             this.gameOver();
         } else {
@@ -184,9 +188,19 @@ class Quiz extends Component {
             });
         }
     }
+
+    /* on créer une function pour charger le niveau supérieur
+    (élément suivant de notre array levelNames: ["debutant", "confirme", "expert"])*/
+    loadLevelQuestions = param => {
+        // console.log(param);
+        // ici grace au spread operator on peut importer toutes les datas de initialState
+        this.setState({...this.initialState, quizLevel: param});
+
+        // on invoque la méthode pour charger les nouveaux datas
+        this.loadQuestions(this.state.levelNames[param]);
+    }
     
     render() {
-
         /* je créer ma variable en dehors
         pour une meilleur lisibilité dans le JSX
         <h2>Pseudo: {this.props.userData.pseudo}</h2>
@@ -217,6 +231,7 @@ class Quiz extends Component {
                 maxQuestions={this.state.maxQuestions}
                 quizLevel={this.state.quizLevel}
                 percent={this.state.percent}
+                loadLevelQuestions={this.loadLevelQuestions}
             />
         )
         : 
@@ -239,7 +254,7 @@ class Quiz extends Component {
                     onClick={this.nextQuestion}
                 >
                     {/* gestion de l'affichage du bouton selon le state */}
-                    { this.state.questionId < this.state.maxQuestions -1 ? "Suivant" : "Terminer" }
+                    { this.state.questionId < this.state.maxQuestions - 1 ? "Suivant" : "Terminer" }
                 </button>
             </Fragment>
         )
