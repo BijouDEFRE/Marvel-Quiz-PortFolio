@@ -55,7 +55,7 @@ const QuizOver = React.forwardRef((props, ref) => {
     (
         <Fragment>
         <div className="stepsBtnContainer">
-            <p className="successMsg">Vous avez échoué !</p>
+            <p className="failureMsg">Vous avez échoué !</p>
         </div>
 
         <div className="percentage">
@@ -67,20 +67,33 @@ const QuizOver = React.forwardRef((props, ref) => {
 
     // on "map" sur le résultat afin de recréer un tableau avec les datats récupérées
     // on créer une function pour pouvoir l'afficher dans le JSX
-    const datasAnswer = asked.map(datas => {
-        // on créer un élément "parent" que l'on veut répéter plusieurs fois
-        // pour cela, il faut créer un "key" (id)
-        return (
-            <tr key={datas.id}>
-                <td>{datas.id + 1}</td>
-                <td>{datas.question}</td>
-                <td>{datas.answer}</td>
-                <td>
-                    <button className="btnInfo">Infos</button>
-                </td>
-            </tr>
-        )
-    })
+    // une condition pour afficher les réponse à la fin de la série (au moins 50% de bonnes réponses)
+    const datasAnswer = score >= averageGrade ? (
+        asked.map(datas => {
+            // on créer un élément "parent" que l'on veut répéter plusieurs fois
+            // pour cela, il faut créer un "key" (id)
+            return (
+                <tr key={datas.id}>
+                    <td>{datas.id + 1}</td>
+                    <td>{datas.question}</td>
+                    <td>{datas.answer}</td>
+                    <td>
+                        <button className="btnInfo">Infos</button>
+                    </td>
+                </tr>
+            )
+        })
+    )
+    :
+    (
+        <tr>
+            <td colSpan="4">
+                <p style={{textAlign: 'center', color: 'red'}}>
+                    Pas de réponses !
+                </p>
+            </td>
+        </tr>
+    )
 
     return (
         <Fragment>
