@@ -25,6 +25,12 @@ const QuizOver = React.forwardRef((props, ref) => {
     }, [ref])
 
     const averageGrade = maxQuestions / 2;
+    // une condition pour passer au niveau supérieur
+    if (score < averageGrade) {
+        // setTimeout(() => loadLevelQuestions(0), 3000)
+        setTimeout(() => loadLevelQuestions(quizLevel), 3000)
+    }
+
     const decision = score >= averageGrade ? (
         <Fragment>
             <div className="stepsBtnContainer">
@@ -101,6 +107,7 @@ const QuizOver = React.forwardRef((props, ref) => {
     (
         <tr>
             <td colSpan="4">
+                <div className="loader"></div>
                 <p style={{textAlign: 'center', color: 'red'}}>
                     Pas de réponses !
                 </p>

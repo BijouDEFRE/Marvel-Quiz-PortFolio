@@ -37,7 +37,7 @@ class Quiz extends Component {
     }
 
     // gestion de l'affichage du toaster user
-    showWelcomeMsg = pseudo => {
+    showToastMsg = pseudo => {
         if(!this.state.showWelcomeMsg) {
 
             this.setState({
@@ -91,7 +91,8 @@ class Quiz extends Component {
     // grace à la mise à jour du state nous avons accès à la méthode du cicle de vie :
     componentDidUpdate(prevProps, prevState) {
         // on peut vérifier si il y à une différence du state initiale
-        if (this.state.storedQuestions !== prevState.storedQuestions) {
+        // et si le state actuel n'est pas vide
+        if ((this.state.storedQuestions !== prevState.storedQuestions) && this.state.storedQuestions.length) {
             // console.log(this.state.storedQuestions[0].question);
             this.setState({
                 question: this.state.storedQuestions[this.state.questionId].question,
@@ -100,7 +101,8 @@ class Quiz extends Component {
         }
         
         // si le state actuel est différent du prevState, alors on passe à la question suivante
-        if (this.state.questionId !== prevState.questionId) {
+        // et si le state actuel n'est pas vide
+        if ((this.state.questionId !== prevState.questionId) && this.state.storedQuestions.length) {
             this.setState({
                 question: this.state.storedQuestions[this.state.questionId].question,
                 options: this.state.storedQuestions[this.state.questionId].options,
@@ -110,8 +112,8 @@ class Quiz extends Component {
             })
         }
 
-        if (this.props.userData.pseudo) {
-            this.showWelcomeMsg(this.props.userData.pseudo)
+        if (this.props.userData.pseudo !== prevProps.userData.pseudo) {
+            this.showToastMsg(this.props.userData.pseudo)
         }
     }
 
