@@ -16,10 +16,21 @@ const Levels = ({levelNames, quizLevel}) => {
     }, [levelNames]);
 
     return (
-        <div className="levelsContainer">
+        <div className="levelsContainer" style={{background: 'transparent'}}>
+            {/* https://www.npmjs.com/package/react-stepper-horizontal */}
             <Stepper
                 steps={ levels }
                 activeStep={ quizLevel }
+                circleTop={0}
+                activeTitleColor={'#d31017'}
+                activeColor={'#d31017'}
+                completeTitleColor={'#E0E0E0'}
+                defaultTitleColor={'#E0E0E0'}
+                completeColor={'#E0E0E0'}
+                completeBarColor={'#E0E0E0'}
+                barStyle={'dashed'}
+                size={45}
+                circleFontSize={24}
             />
         </div>
     )
