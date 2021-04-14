@@ -112,13 +112,15 @@ class Quiz extends Component {
             })
         }
 
+        // si la valeur de "quizEnd" alors le state est différent on peut passer la méthode "gradePercent" à "gameOver"
         if (this.state.quizEnd !== prevState.quizEnd) {
             // on assigne le score dans une variable
             const gradePercent = this.getPercentage(this.state.maxQuestions, this.state.score);
             this.gameOver(gradePercent);
         }
 
-        if (this.props.userData.pseudo) {
+        // on affiche le "welcome" uniquement que si la valeur du props est différente
+        if (this.props.userData.pseudo !== prevProps.userData.pseudo) {
             this.showWelcomeMsg(this.props.userData.pseudo)
         }
     }
@@ -151,6 +153,8 @@ class Quiz extends Component {
         if (this.state.questionId === this.state.maxQuestions - 1) {
             // console.log("Game Over");
             // this.gameOver();
+            // on met à jour le state à la fin de la série de questions
+            // la mise à jour sera vérifier grace à la méthode "componentDidUpdate"
             this.setState({quizEnd: true})
         } else {
             this.setState(prevState => ({
@@ -241,7 +245,10 @@ class Quiz extends Component {
         (
             <Fragment>
                 {/* <h2>Pseudo: {pseudo}</h2> */}
-                <Levels />
+                <Levels
+                    levelNames={this.state.levelNames}
+                    quizLevel={this.state.quizLevel}
+                />
 
                 <ProgressBar
                     questionId={this.state.questionId}
