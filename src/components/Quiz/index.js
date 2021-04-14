@@ -9,28 +9,33 @@ import { FaChevronRight } from 'react-icons/fa';
 
 toast.configure();
 
+const initialState = {
+    // on initialise notrestate de départ
+    quizLevel: 0,
+    maxQuestions: 10,
+    storedQuestions: [],
+    question: null,
+    options: [],
+    questionId: 0,
+    btnDisabled: true,
+    userAnswer: null,
+    score: 0,
+    showWelcomeMsg: false,
+    quizEnd: false,
+    percent: null
+}
+
+// on charge les tableaux contenus dans le composant quizMarvel
+// on renseigne les différents state qui nous interresse ex. affichage du bouton...
+const levelNames = ["debutant", "confirme", "expert"];
+
 class Quiz extends Component {
 
     // pour éviter de recopier ce "state" dans des nouvelles méthodes nous créeons un constructor
     constructor(props) {
         super(props)
-        // on charge les tableaux contenus dans le composant quizMarvel
-        // on renseigne les différents state qui nous interresse ex. affichage du bouton...
-        this.initialState = {
-            levelNames: ["debutant", "confirme", "expert"],
-            quizLevel: 0,
-            maxQuestions: 10,
-            storedQuestions: [],
-            question: null,
-            options: [],
-            questionId: 0,
-            btnDisabled: true,
-            userAnswer: null,
-            score: 0,
-            showWelcomeMsg: false,
-            quizEnd: false
-        }
-        this.state = this.initialState;
+        
+        this.state = initialState;
         /* on récupère les bonnes réponses obtenues par la variable :
         const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest)
         cette fois on utilise pas le destructuring, on récupère tout */
@@ -41,9 +46,7 @@ class Quiz extends Component {
     showWelcomeMsg = pseudo => {
         if(!this.state.showWelcomeMsg) {
 
-            this.setState({
-                showWelcomeMsg: true
-            })
+            this.setState({showWelcomeMsg: true})
 
             toast.info(`Bienvenue ${pseudo} !`, {
                 position: "top-right",
@@ -75,38 +78,40 @@ class Quiz extends Component {
             // on créer un nouvel objet (tableau) pour cibler les éléments que l'on souhaite afficher
             const newArray = fetchedArrayQuiz.map( ({ answer, ...keepRest }) => keepRest);
             // mis à jour du state
-            this.setState({
-                storedQuestions: newArray
-            })
-
-        } else {
-            console.log("Pas assez de questions !!!!");
+            this.setState({storedQuestions: newArray})
         }
     }
     
     // on créer un tableau depuis le composant quizMarvel
     componentDidMount() {
-        this.loadQuestions(this.state.levelNames[this.state.quizLevel]);
+        this.loadQuestions(levelNames[this.state.quizLevel]);
     }
 
     // grace à la mise à jour du state nous avons accès à la méthode du cicle de vie :
     componentDidUpdate(prevProps, prevState) {
+        const {
+            maxQuestions,
+            storedQuestions,
+            questionId,
+            score,
+            quizEnd
+        } = this.state;
         // on peut vérifier si il y à une différence du state initiale
         // et que le tableau n'est pas vide
-        if ((this.state.storedQuestions !== prevState.storedQuestions) && this.state.storedQuestions.length) {
+        if ((storedQuestions !== prevState.storedQuestions) && storedQuestions.length) {
             // console.log(this.state.storedQuestions[0].question);
             this.setState({
-                question: this.state.storedQuestions[this.state.questionId].question,
-                options: this.state.storedQuestions[this.state.questionId].options
+                question: storedQuestions[questionId].question,
+                options: storedQuestions[questionId].options
             })
         }
         
         // si le state actuel est différent du prevState et que le tableau n'est pas vide,
         // alors on passe à la question suivante
-        if ((this.state.questionId !== prevState.questionId) && this.state.storedQuestions.length) {
+        if ((questionId !== prevState.questionId) && storedQuestions.length) {
             this.setState({
-                question: this.state.storedQuestions[this.state.questionId].question,
-                options: this.state.storedQuestions[this.state.questionId].options,
+                question: storedQuestions[questionId].question,
+                options: storedQuestions[questionId].options,
                 // le state est modifié donc on réinitialise
                 userAnswer: null,
                 btnDisabled: true
@@ -114,9 +119,9 @@ class Quiz extends Component {
         }
 
         // si la valeur de "quizEnd" alors le state est différent on peut passer la méthode "gradePercent" à "gameOver"
-        if (this.state.quizEnd !== prevState.quizEnd) {
+        if (quizEnd !== prevState.quizEnd) {
             // on assigne le score dans une variable
-            const gradePercent = this.getPercentage(this.state.maxQuestions, this.state.score);
+            const gradePercent = this.getPercentage(maxQuestions, score);
             this.gameOver(gradePercent);
         }
 
@@ -158,20 +163,16 @@ class Quiz extends Component {
             // la mise à jour sera vérifier grace à la méthode "componentDidUpdate"
             this.setState({quizEnd: true})
         } else {
-            this.setState(prevState => ({
-                questionId: prevState.questionId +1
-            }))
+            this.setState(prevState => ({questionId: prevState.questionId +1}))
         }
 
         // ici on cible la réponse du User de la questionId et la réponse attendue
         const goodAnswer = this.storedDataRef.current[this.state.questionId].answer;
         if (this.state.userAnswer === goodAnswer) {
-            this.setState( prevState => ({
-                /* si la réponse du User = réponse attendue (prevState)
-                on incrémente le score + 1, comme on modifie la data de notre state
-                nous pouvons réactivé la méthode componentDidUpdate */
-                score: prevState.score + 1
-            }))
+            /* si la réponse du User = réponse attendue (prevState)
+            on incrémente le score + 1, comme on modifie la data de notre state
+            nous pouvons réactivé la méthode componentDidUpdate */
+            this.setState( prevState => ({score: prevState.score + 1}))
 
             toast.success('Bravo + 1', {
                 position: "top-right",
@@ -202,25 +203,39 @@ class Quiz extends Component {
     loadLevelQuestions = param => {
         // console.log(param);
         // ici grace au spread operator on peut importer toutes les datas de initialState
-        this.setState({...this.initialState, quizLevel: param});
+        this.setState({...initialState, quizLevel: param});
 
         // on invoque la méthode pour charger les nouveaux datas
-        this.loadQuestions(this.state.levelNames[param]);
+        this.loadQuestions(levelNames[param]);
     }
     
     render() {
+
+        const {
+            quizLevel,
+            maxQuestions,
+            question,
+            options,
+            questionId,
+            btnDisabled,
+            userAnswer,
+            score,
+            quizEnd,
+            percent
+        } = this.state;
+
         /* je créer ma variable en dehors
         pour une meilleur lisibilité dans le JSX
         <h2>Pseudo: {this.props.userData.pseudo}</h2>
         cela s'appelle le déstructuring */
         // const { pseudo } = this.props.userData;
         // console.log(props.userData.pseudo);
-        const displayOptions = this.state.options.map((option, index) => {
+        const displayOptions = options.map((option, index) => {
             return (
                 <p key={index}
                     // on créer une condition pour afficher ou non la class
                     // si la réponse est identique à celle obtenue dans le .map, on change la class
-                    className={`answerOptions ${this.state.userAnswer === option ? "selected" : null}`}
+                    className={`answerOptions ${userAnswer === option ? "selected" : null}`}
                     onClick={() => this.submitAnswer(option)}
                 >
                 {/* ici on utilise react-icons */}
@@ -230,16 +245,16 @@ class Quiz extends Component {
         })
 
         // gestion de la fin du quiz on passe tout le return dans le nouveau state
-        return this.state.quizEnd ? (
+        return quizEnd ? (
             <QuizOver
             // ici on passe un "props" afin de le récupérer depuis notre composant (QuizOver)
                 ref={this.storedDataRef}
                 props="Je suis une props ordinaire"
-                levelNames={this.state.levelNames}
-                score={this.state.score}
-                maxQuestions={this.state.maxQuestions}
-                quizLevel={this.state.quizLevel}
-                percent={this.state.percent}
+                levelNames={levelNames}
+                score={score}
+                maxQuestions={maxQuestions}
+                quizLevel={quizLevel}
+                percent={percent}
                 loadLevelQuestions={this.loadLevelQuestions}
             />
         )
@@ -248,25 +263,25 @@ class Quiz extends Component {
             <Fragment>
                 {/* <h2>Pseudo: {pseudo}</h2> */}
                 <Levels
-                    levelNames={this.state.levelNames}
-                    quizLevel={this.state.quizLevel}
+                    levelNames={levelNames}
+                    quizLevel={quizLevel}
                 />
 
                 <ProgressBar
-                    questionId={this.state.questionId}
-                    maxQuestions={this.state.maxQuestions}
+                    questionId={questionId}
+                    maxQuestions={maxQuestions}
                 />
-                <h2>{this.state.question}</h2>
+                <h2>{question}</h2>
 
                 { displayOptions }
 
                 <button
                     className="btnSubmit"
-                    disabled ={this.state.btnDisabled}
+                    disabled ={btnDisabled}
                     onClick={this.nextQuestion}
                 >
                     {/* gestion de l'affichage du bouton selon le state */}
-                    { this.state.questionId < this.state.maxQuestions - 1 ? "Suivant" : "Terminer" }
+                    { questionId < maxQuestions - 1 ? "Suivant" : "Terminer" }
                 </button>
             </Fragment>
         )

@@ -2,6 +2,7 @@ import React, { useState, Fragment, useContext, useEffect } from 'react';
 import { FirebaseContext } from '../Firebase';
 import Logout from '../Logout';
 import Quiz from '../Quiz';
+import Loader from '../Loader';
 
 // on passe le "props" pour accéder à history et push
 const Welcome = props => {
@@ -46,10 +47,10 @@ const Welcome = props => {
     }, [userSession])
 
     return userSession === null ? (
-        <Fragment>
-            <div className="loader"></div>
-            <p>Loading...</p>
-        </Fragment>
+        <Loader
+            loadingMsg={"Authentification..."}
+            styling={{textAlign: 'center', color: '#FFFFFF'}}
+        />
     ) : (
         // si le user existe, on renvoie vers la page quiz
         <div className="quiz-bg">
