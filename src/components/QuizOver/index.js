@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { GiTrophyCup } from 'react-icons/gi';
 
 /* afin de récupérer les "props/refs" dans un composant de type function,
 on doit utiliser la technique "React.forwardRef".
@@ -53,7 +54,9 @@ const QuizOver = React.forwardRef((props, ref) => {
          :
          (
              <Fragment>
-                 <p className="successMsg">Bravo, vous êtes un expert !</p>
+                 <p className="successMsg">
+                    <GiTrophyCup size='50px' /> Bravo, vous êtes un expert !
+                 </p>
                  <button
                     className="btnResult gameOver"
                     onClick={() => loadLevelQuestions(0)}
