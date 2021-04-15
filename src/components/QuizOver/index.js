@@ -41,18 +41,38 @@ const QuizOver = React.forwardRef((props, ref) => {
     
     const showModal = id => {
         setOpenModal(true);
-        
-        axios
-        .get(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`)
-        .then(response => {
-            setCharacterInfos(response.data);
-            // on à récupérer les infos on "coupe" le loader
+
+        /* on met en place une condition pour vérifier que les datas
+        sont présentent ou non dans le localStorage */
+        if ( localStorage.getItem(id) ) {
+            // si les données sont existantes dans le localStorage
+            setCharacterInfos(JSON.parse(localStorage.getItem(id)));
             setLoading(false);
-        })
-        .catch(error => {
-            console.log(error)
-        })
+
+        } else {
+            
+            axios
+            .get(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`)
+            .then(response => {
+                setCharacterInfos(response.data);
+                // on à récupérer les infos on "coupe" le loader
+                setLoading(false);
+    
+                // on stoque les infos récupérées dans notre "localstorage"
+                // on utilise JSON.stringify car (response.data) est un objet !!!!
+                // on ne peut pas stoquer d'objet dans le localstorage !!! mais un chaine de caractères
+                localStorage.setItem(id, JSON.stringify(response.data));
+    
+                // on créer une condition pour créer ou non une date dans le localstorage
+                // pour enregistrer de la data on utilise "set" pour en récupérer n utilise "get"
+                if ( !localStorage.getItem('marvelStorageDate') ) {
+                    localStorage.setItem('marvelStorageDate', Date.now());
+                }
+            })
+            .catch(error => {console.log(error)})
+        }
     }
+        
     
     const closeModal = () => {
         setOpenModal(false);
@@ -179,7 +199,7 @@ const QuizOver = React.forwardRef((props, ref) => {
                 <h2>Réponse du Shield ...</h2>
             </div>
             <div className="modalBody">
-                <loader />
+                <Loader />
             </div>
         </Fragment>
 
