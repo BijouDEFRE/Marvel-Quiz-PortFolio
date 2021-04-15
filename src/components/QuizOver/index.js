@@ -100,6 +100,11 @@ const QuizOver = React.forwardRef((props, ref) => {
         setLoading(true);
     }
 
+    // une méthode pour mettre une capitale sur la première letre d'une string
+    const capitalizeFirstLetter = string => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     const averageGrade = maxQuestions / 2;
     // une condition pour passer au niveau supérieur
     if (score < averageGrade) {
@@ -205,10 +210,40 @@ const QuizOver = React.forwardRef((props, ref) => {
                 <h2>{characterInfos.data.results[0].name}</h2>
             </div>
             <div className="modalBody">
-                <h3>Titre2</h3>
+                <div className="comicImage">
+                    <img
+                        src={characterInfos.data.results[0].thumbnail.path+'.'+characterInfos.data.results[0].thumbnail.extension}
+                        alt={characterInfos.data.results[0].name}
+                    />
+
+                    <p>{characterInfos.attributionText}</p>
+                </div>
+                <div className="comicDetails">
+                    <h3>Description</h3>
+                    {
+                        characterInfos.data.results[0].description ?
+                        <p>{characterInfos.data.results[0].description}</p>
+                        :
+                        <p>Description indisponible ...</p>
+                    }
+                    <h3>Plus d'infos</h3>
+                    {
+                        characterInfos.data.results[0].urls &&
+                        characterInfos.data.results[0].urls.map( (url, index) => {
+                            return <a
+                                key={index}
+                                href={url.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {capitalizeFirstLetter(url.type)}
+                            </a>
+                        })
+                    }
+                </div>
             </div>
             <div className="modalFooter">
-                <button className="modalBtn">Fermer</button>
+                <button className="modalBtn" onClick={ closeModal }>Fermer</button>
             </div>
         </Fragment>
     )
