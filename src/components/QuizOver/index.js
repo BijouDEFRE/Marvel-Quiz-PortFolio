@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { GiTrophyCup } from 'react-icons/gi';
 import Loader from '../Loader';
+import Modal from '../Modal';
 
 /* afin de récupérer les "props/refs" dans un composant de type function,
 on doit utiliser la technique "React.forwardRef".
@@ -18,6 +19,7 @@ const QuizOver = React.forwardRef((props, ref) => {
 
     // on récupère toutes les questions
     const [asked, setAsked] = useState([]);
+    const [openModal, setOpenModal] = useState(false);
     // console.log(asked);
 
     // cette fonction s'enclanche à chaque modification de "ref"
@@ -25,6 +27,14 @@ const QuizOver = React.forwardRef((props, ref) => {
         setAsked(ref.current)
         // on créer la dépendance pour récupérer les datas
     }, [ref])
+
+    const showModal = id => {
+        setOpenModal(true);
+    }
+
+    const closeModal = () => {
+        setOpenModal(false);
+    }
 
     const averageGrade = maxQuestions / 2;
     // une condition pour passer au niveau supérieur
@@ -101,7 +111,12 @@ const QuizOver = React.forwardRef((props, ref) => {
                     <td>{datas.question}</td>
                     <td>{datas.answer}</td>
                     <td>
-                        <button className="btnInfo">Infos</button>
+                        <button
+                            className="btnInfo"
+                            onClick={ () => showModal(datas.heroId) }
+                        >
+                            Infos
+                        </button>
                     </td>
                 </tr>
             )
@@ -142,6 +157,18 @@ const QuizOver = React.forwardRef((props, ref) => {
                     </tbody>
                 </table>
             </div>
+
+            <Modal showModal={openModal} closeModal={closeModal}>
+                <div className="modalHeader">
+                    <h2>Titre</h2>
+                </div>
+                <div className="modalBody">
+                    <h3>Titre2</h3>
+                </div>
+                <div className="modalFooter">
+                    <button className="modalBtn">Fermer</button>
+                </div>
+            </Modal>
         </Fragment>
     )
 })
