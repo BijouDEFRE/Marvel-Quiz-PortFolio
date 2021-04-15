@@ -39,27 +39,3 @@ class Firebase {
 }
 
 export default Firebase;
-
-// class Firebase {
-//     constructor() {
-//       app.initializeApp(config);
-//       this.auth = app.auth();
-//     }
-  
-//     // Inscription
-//     signupUser = (email, password) => {
-//       return (
-//         this.auth.createUserWithEmailAndPassword(email, password)
-//       )
-//     }
-  
-//     // Connexion
-//     loginUser = (email, password) => {
-//       return (
-//         this.auth.signInWithEmailAndPassword(email, password)
-//       )
-//     }
-  
-//     // Deconnexion
-//     signoutUser = () => this.auth.signOut()
-//   }

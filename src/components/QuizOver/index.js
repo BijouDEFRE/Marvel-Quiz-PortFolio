@@ -21,10 +21,10 @@ const QuizOver = React.forwardRef((props, ref) => {
     const API_PUBLIC_KEY = process.env.REACT_APP_MARVEL_API_KEY;
     console.log(API_PUBLIC_KEY);
 
-    // const hash ='856129469804F07E7079C61E24C3D23B';
-    const hash ='5daddad6f060b32ee6ab13127f1df6bd';
-    console.log(hash);
-    console.log(`https://gateway.marvel.com/v1/public/characters/1009362?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`);
+    const hash ='18422bfafc67c119012daa1f821828bf';
+    // const hash ='5daddad6f060b32ee6ab13127f1df6bd';
+    // console.log(hash);
+    // console.log(`https://gateway.marvel.com/v1/public/characters/1009362?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`);
     
     // on récupère toutes les questions
     const [asked, setAsked] = useState([]);
