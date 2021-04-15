@@ -36,8 +36,28 @@ const QuizOver = React.forwardRef((props, ref) => {
     // cette fonction s'enclanche à chaque modification de "ref"
     useEffect(() => {
         setAsked(ref.current)
+        // au montage du composant, on check le localStorage
+        if ( localStorage.getItem('marvelStorageDate')) {
+            const date = localStorage.getItem('marvelStorageDate');
+            checkDataAge(date);
+        }
         // on créer la dépendance pour récupérer les datas
     }, [ref])
+
+    // on définie une méthode pour vérifier "l'age" de la data
+    const checkDataAge = date => {
+
+        const today = Date.now();
+        const timeDifference = today - date;
+        /* les dates étant calculées en milisecondes, un calcul
+         nous permet de définir le nombres de jours avant de vider le localStorage */
+        const daysDifference = timeDifference / (1000 * 3600 * 24);
+        // ici nous choisissont 15 jours avant de "clear" le localStorage
+        if ( daysDifference >= 15 ) {
+            localStorage.clear();
+            localStorage.setItem('marvelStorageDate', Date.now());
+        }
+    }
     
     const showModal = id => {
         setOpenModal(true);
@@ -50,7 +70,7 @@ const QuizOver = React.forwardRef((props, ref) => {
             setLoading(false);
 
         } else {
-            
+
             axios
             .get(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`)
             .then(response => {
