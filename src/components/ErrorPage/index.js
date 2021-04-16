@@ -1,5 +1,5 @@
 import React from 'react';
-import notFound from "../../images/404.png";
+import notFound from "../../images/404@254x.png";
 
 // const centerh2 = {
 //     textAlign: "center",

@@ -85,8 +85,11 @@ body {
   margin: 0;
   padding: 0;
   background-image: url(images/bg-noise-texture2.png);
-  background-repeat: repeat;
-  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: repeat; */
+  /* height: 100vh; */
+  max-height: max-content;
   display: flex;
   flex-direction: column;
 }
@@ -238,6 +241,7 @@ main {
 /* FOOTER */
 footer {
   background-image: url(images/Fond_matiere_FOOTER2.png);
+  height: 150px;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -257,9 +261,9 @@ footer {
   font-weight: 400;
   font-size: 1rem;
   color: var(--white-color);
-  line-height: 19px;
+  line-height: 30px;
   margin: 10px 0;
-  padding: 0;
+  padding: 15px;
   font-size: 20px;
   font-weight: normal;
   text-align: center;
@@ -275,12 +279,18 @@ footer {
 }
 
 .container {
-  background-color: var(--white-color);
-  padding: 30px;
-  flex: 0 1 80%;
+  /* background-color: var(--white-color); */
+  background-color: #ffb81a;
+  padding: 20px;
+  /* flex: 0 1 80%; */
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
 }
 /* END ERROR PAGE */
 
