@@ -1,6 +1,9 @@
+// Functionals import
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FirebaseContext } from '../Firebase';
+// Esthetics import
+import './forgetPassword.css';
 
 // je renseigne le props pour pouvoir accéder aux "target"
 const ForgetPassword = (props) => {

@@ -1,5 +1,8 @@
+// Functionals import
 import React, { useRef, useEffect, useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+// Esthetics import
+import './landing.css';
 
 const Landing = () => {
 

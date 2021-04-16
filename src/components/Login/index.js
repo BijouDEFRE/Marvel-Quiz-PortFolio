@@ -1,6 +1,10 @@
+// Functionals import
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+// Import context
 import { FirebaseContext } from '../Firebase';
+// Esthetics import
+import './login.css';
 
 const Login = (props) => {
 
@@ -11,6 +15,7 @@ const Login = (props) => {
     const [btn, setBtn] = useState(false);
     const [error, setError] = useState('');
 
+    // on définit une condition pour l'affichage du bouton, une fois les champs renseignés
     useEffect(() => {
         if (password.length > 5 && email !== '') {
             setBtn(true)

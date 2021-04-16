@@ -1,4 +1,7 @@
+// Functionals import
 import React from 'react';
+// Esthetics import
+import './footer.css';
 
 const Footer = () => {
     return (

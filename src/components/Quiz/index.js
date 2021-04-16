@@ -1,11 +1,16 @@
+// Functionals import
 import React, { Component, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { QuizMarvel } from '../quizMarvel';
+// Components import
 import Levels from '../Levels';
 import ProgressBar from '../ProgressBar';
 import QuizOver from '../QuizOver';
+// Datas import
+import { QuizMarvel } from '../quizMarvel';
+// Esthetics import
 import { FaChevronRight } from 'react-icons/fa';
+import 'react-toastify/dist/ReactToastify.css';
+import './quiz.css';
 
 toast.configure();
 

@@ -1,0 +1,32 @@
+/* FOOTER */
+footer {
+    background-image: url(../../assets/images/Fond_matiere_FOOTER2.png);
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-container {
+    padding: 20px 0;
+    padding: 20px 0;
+    flex: 0 1 80%;
+  }
+  
+  .footer-container p {
+    font-family: badaboom-pro, sans-serif;
+    /* font-family: din-1451-lt-pro-engschrift, sans-serif; */
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--white-color);
+    line-height: 30px;
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+  }
+
+/* END FOOTER */

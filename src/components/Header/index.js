@@ -1,5 +1,8 @@
+// Functionals import
 import React from 'react';
-import Marvel from '../../images/MARVEL-QUIZ-3.svg';
+// Esthetics import
+import Marvel from '../../assets/images/MARVEL-QUIZ-3.svg';
+import './header.css';
 
 const Header = () => {
     return (

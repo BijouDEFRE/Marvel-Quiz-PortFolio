@@ -1,4 +1,7 @@
+// Functionals import
 import React from 'react';
+// Esthetics import
+import './modal.css';
 
 /* grace à la props "children", on peur récupérer les éléments contenus dans le compsant
 qui appelle "Modal" dans notre logique ici c'est QuizOver :

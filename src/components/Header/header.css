@@ -1,0 +1,24 @@
+/* HEADER */
+header {
+    background-image: url(../../assets/images/Fond_matiere_HEADER2.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    /* padding-bottom: 4em; */
+    /* background-color: aqua; */
+}
+  
+.banner-container {
+    padding: 20px 0;
+    flex-basis: 80%;
+}
+  
+.banner-container img {
+    max-width: 25%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+  
+/* END HEADER */

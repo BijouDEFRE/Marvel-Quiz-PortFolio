@@ -1,8 +1,12 @@
+// Functionals import
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
-import { GiTrophyCup } from 'react-icons/gi';
+// Components import
 import Loader from '../Loader';
 import Modal from '../Modal';
+// Esthetics import
+import { GiTrophyCup } from 'react-icons/gi';
+import './quizOver.css';
 
 /* afin de récupérer les "props/refs" dans un composant de type function,
 on doit utiliser la technique "React.forwardRef".
@@ -16,22 +20,19 @@ const QuizOver = React.forwardRef((props, ref) => {
     
     // ici on peut faire le destructuring pour avoir acces aux "props"
     const {levelNames, score, maxQuestions, quizLevel, percent, loadLevelQuestions} = props;
-    // console.log(percent);
 
+    // on récupère nos variables d'envirronement pour ce connecter à notre API
     const API_PUBLIC_KEY = process.env.REACT_APP_MARVEL_API_KEY;
     console.log(API_PUBLIC_KEY);
 
+    // on utilise une version "hachée" de nos identifiants
     const hash ='18422bfafc67c119012daa1f821828bf';
-    // const hash ='5daddad6f060b32ee6ab13127f1df6bd';
-    // console.log(hash);
-    // console.log(`https://gateway.marvel.com/v1/public/characters/1009362?ts=1&apikey=${API_PUBLIC_KEY}&hash=${hash}`);
     
     // on récupère toutes les questions
     const [asked, setAsked] = useState([]);
     const [openModal, setOpenModal] = useState(false);
     const [characterInfos, setCharacterInfos] = useState();
     const [loading, setLoading] = useState(true);
-    // console.log(asked);
     
     // cette fonction s'enclanche à chaque modification de "ref"
     useEffect(() => {

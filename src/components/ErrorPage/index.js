@@ -1,10 +1,9 @@
+// Functionals import
 import React from 'react';
-import notFound from "../../images/404@254x.png";
-
-// const centerh2 = {
-//     textAlign: "center",
-//     marginTop: "50px"
-// }
+// Components import
+import notFound from "../../assets/images/404@254x.png";
+// Esthetics import
+import './errorPage.css';
 
 const centerImg = {
     display: "bloc",

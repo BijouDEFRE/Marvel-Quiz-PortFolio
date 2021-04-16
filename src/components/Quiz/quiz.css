@@ -1,0 +1,40 @@
+/* TOASTIFY COLOR */
+.toastify-color-welcome {
+    font-weight: bold;
+    min-height: 150px;
+    min-width: 200px;
+    text-align: center;
+    color: var(--black-color);
+    /* background-image: url(images/StanLee_Toastify.png); */
+    background-image: url(../../assets/images/BebeGroot_Toastify.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .toastify-color {
+    color: var(--white-color);
+  }
+  
+  .toastify-success {
+    min-height: 150px;
+    min-width: 200px;
+    color: var(--white-color);
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../../assets/images/Deadpool_Toastify.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .toastify-error {
+    min-height: 150px;
+    min-width: 200px;
+    color: var(--white-color);
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../../assets/images/SpiderMan_Toastify.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  /* END TOASTIFY COLOR */

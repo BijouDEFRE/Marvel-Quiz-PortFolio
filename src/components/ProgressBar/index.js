@@ -1,4 +1,7 @@
+// Functionals import
 import React, { Fragment } from 'react';
+// Esthetics import
+import './progressBar.css';
 
 // on utilise le destructuring pour récupérer les props depuis le composant "Quiz" ({questionId, maxQuestions})
 const ProgressBar = ({questionId, maxQuestions}) => {

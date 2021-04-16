@@ -1,5 +1,8 @@
+// Functionals import
 import React, { useEffect, useState } from 'react';
+// Esthetics import
 import Stepper from 'react-stepper-horizontal';
+import './levels.css';
 
 // on importe nos "props" depuis notre composant "Quiz" en utilisant le destructuring
 const Levels = ({levelNames, quizLevel}) => {

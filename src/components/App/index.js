@@ -1,5 +1,7 @@
+// Functionals import
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Components import
 import Header from '../Header';
 import Landing from '../Landing';
 import Footer from '../Footer';
@@ -8,7 +10,8 @@ import Login from '../Login';
 import Signup from '../Signup';
 import ErrorPage from '../ErrorPage';
 import ForgetPassword from '../ForgetPassword';
-import '../../App.css';
+// Esthetics import
+import '../../assets/App.css';
 import { IconContext } from "react-icons";
 
 function App() {
