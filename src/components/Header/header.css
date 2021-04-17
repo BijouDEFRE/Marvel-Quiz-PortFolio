@@ -20,5 +20,20 @@ header {
     display: block;
     margin: auto;
 }
-  
 /* END HEADER */
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 540px) {
+
+    .banner-container {
+        padding: 20px 0;
+        flex-basis: 100%;
+    }
+
+    .banner-container img {
+        max-width: 150%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+  }

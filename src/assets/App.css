@@ -58,7 +58,7 @@ body {
   background-image: url(../assets/images/bg-noise-texture2.png);
   background-size: cover;
   background-position: center;
-  /* background-repeat: repeat; */
+  background-repeat: repeat;
   /* height: 100vh; */
   max-height: max-content;
   display: flex;
@@ -78,31 +78,6 @@ main {
   flex-grow: 1;
 }
 /* END MAIN */
-
-/* ERROR PAGE */
-.quiz-bg {
-  margin: 0;
-  padding: 0;
-  background-color: var(--white-color);
-  display: flex;
-  justify-content: center;
-}
-
-.container {
-  background-color: var(--white-color);
-  /* background-color: #ffb81a; */
-  padding: 20px;
-  flex: 0 1 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.container img {
-  max-width: 100%;
-  height: auto;
-}
-/* END ERROR PAGE */
 
 /* SIGNUP - LOGIN - FORGETPASSWORD */
 .signUpLoginBox {
@@ -237,7 +212,7 @@ main {
   display: block;
   margin: 0 auto 20px;
   min-width: 150px;
-  background-color: transparent;
+  background-color: var(--dark-grey-color);
   color: var(--white-color);
   padding: 7px;
   font-size: 18px;
@@ -349,6 +324,11 @@ button[disabled]:hover {
   .btn-welcome {
     margin-top: 0;
     flex-basis: 300px;
+  }
+
+  .linkContainer {
+    font-size: 0.7rem;
+    line-height: 0.7rem;
   }
 }
 

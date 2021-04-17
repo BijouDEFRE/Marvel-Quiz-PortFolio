@@ -3,6 +3,7 @@ import { FirebaseContext } from '../Firebase';
 import Logout from '../Logout';
 import Quiz from '../Quiz';
 import Loader from '../Loader';
+import './welcome.css'
 
 // on passe le "props" pour accéder à history et push
 const Welcome = props => {

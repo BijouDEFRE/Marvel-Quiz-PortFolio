@@ -1,24 +1,26 @@
 /* ERROR PAGE */
-.quiz-bg {
+.errorQuiz-bg {
     margin: 0;
     padding: 0;
-    background-color: var(--white-color);
+    background-color: #ffb81a;
+    /* background-color: var(--white-color); */
     display: flex;
     justify-content: center;
-  }
+}
   
-  .container {
+.errorContainer {
     /* background-color: var(--white-color); */
-    background-color: #ffb81a;
-    padding: 20px;
+    /* background-color: #ffb81a; */
+    /* background-color: transparent; */
+    /* padding: 20px; */
     /* flex: 0 1 80%; */
     display: flex;
     flex-direction: column;
     align-items: stretch;
-  }
+}
   
-  .container img {
+.errorContainer img {
     max-width: 100%;
     height: auto;
-  }
-  /* END ERROR PAGE */
+}
+/* END ERROR PAGE */
