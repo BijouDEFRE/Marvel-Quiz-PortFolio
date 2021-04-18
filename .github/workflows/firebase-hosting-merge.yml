@@ -21,6 +21,7 @@ jobs:
       - name: install node packages
         run: npm i
 
+
       - name: Build
         run: npm run build
         env:
@@ -30,6 +31,7 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
             args: deploy --only hosting
+            projectId: marvel-quiz-4e882
         env:
             FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MARVEL_QUIZ_4E882 }}
 
