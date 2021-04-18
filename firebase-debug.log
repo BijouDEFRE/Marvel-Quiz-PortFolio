@@ -1,0 +1,98 @@
+[debug] [2021-04-18T17:30:16.508Z] ----------------------------------------------------------------------
+[debug] [2021-04-18T17:30:16.509Z] Command:       /usr/local/bin/firebase /Users/fredericcreuseveau/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy --debug
+[debug] [2021-04-18T17:30:16.509Z] CLI Version:   9.8.0
+[debug] [2021-04-18T17:30:16.509Z] Platform:      darwin
+[debug] [2021-04-18T17:30:16.509Z] Node Version:  v12.2.0
+[debug] [2021-04-18T17:30:16.510Z] Time:          Sun Apr 18 2021 19:30:16 GMT+0200 (GMT+02:00)
+[debug] [2021-04-18T17:30:16.510Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-04-18T17:30:16.511Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-04-18T17:30:16.530Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-18T17:30:16.531Z] > authorizing via signed-in user
+[debug] [2021-04-18T17:30:16.531Z] [iam] checking project marvel-quiz-4e882 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-04-18T17:30:16.533Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-18T17:30:16.533Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-18T17:30:17.058Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Sun, 18 Apr 2021 17:30:17 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:17.086Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/marvel-quiz-4e882:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-04-18T17:30:17.835Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-04-18T17:30:17.836Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-04-18T17:30:18.101Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 18 Apr 2021 17:30:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=551","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:18.102Z] > refreshing access token with scopes: []
+[debug] [2021-04-18T17:30:18.102Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-18T17:30:18.402Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sun, 18 Apr 2021 17:30:18 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:18.429Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marvel-quiz-4e882 [none]
+[debug] [2021-04-18T17:30:18.856Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marvel-quiz-4e882 200
+[debug] [2021-04-18T17:30:18.856Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marvel-quiz-4e882 {"projectId":"marvel-quiz-4e882","projectNumber":"534937583130","displayName":"marvel-quiz","name":"projects/marvel-quiz-4e882","resources":{"hostingSite":"marvel-quiz-4e882","storageBucket":"marvel-quiz-4e882.appspot.com","locationId":"europe-west2"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'marvel-quiz-4e882'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-04-18T17:30:18.860Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-18T17:30:18.860Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-18T17:30:19.127Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Sun, 18 Apr 2021 17:30:19 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:19.154Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-04-18T17:30:21.008Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 18 Apr 2021 17:30:20 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[marvel-quiz-4e882]: beginning deploy... 
+[info] i  hosting[marvel-quiz-4e882]: found 38 files in build 
+[debug] [2021-04-18T17:30:21.028Z] > refreshing access token with scopes: []
+[debug] [2021-04-18T17:30:21.029Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-18T17:30:21.030Z] [hosting] hash cache [YnVpbGQ] stored for 38 files
+[debug] [2021-04-18T17:30:21.030Z] [hosting][hash queue][FINAL] {"max":2,"min":0,"avg":0,"active":0,"complete":38,"success":38,"errored":0,"retried":0,"total":38,"elapsed":4}
+[debug] [2021-04-18T17:30:21.552Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Sun, 18 Apr 2021 17:30:21 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:21.580Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/versions/0ed170e52108346b:populateFiles [none]
+[debug] [2021-04-18T17:30:21.580Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/versions/0ed170e52108346b:populateFiles {"files":{"/Favicon.svg":"a9d3551f4315491ba4b032d0e9ba3e5601305b948531ef980abfb411b47fa883","/Favicon@254x.png":"14d9028c71e54f312da8f44bd9c372fc50fc92be01d7dee53dd06ac759f165c0","/apple-touch-icon.png":"fa94b109162c2283dea33c2fd1c7deefac4fc51fd2ffe35e9acbf184219c0be4","/asset-manifest.json":"401f52d101a74bf429f6d99f6ae1bf91073546d6c73c66c16681373b2145c721","/favicon-16x16.png":"c92a80a7240f56f77a6b54c605bbb6fd6cd8d0ef0b2f6bd3ae8a81e4980bda62","/favicon-32x32.png":"72130d1da706a4651fca5ea8de6095ccaa8322f64d925a0f8c4612e14fed96cb","/favicon.ico":"4822e34247166fc21407b6b57fed232ac236eda33acd0de9c61c29fcadca5d3b","/index.html":"68f4dbdcba70ef8c3d148b04b47de12c3b79414081b9394802ee9c2a654ba814","/robots.txt":"391d14b3c2f8c9143a27a28c7399585142228d4d1bdbe2c87ac946de411fa9a2","/static/css/2.ffda3d49.chunk.css":"3d02efe93700c4f83a8146342affde147881823a0e3ea7589446793329768f6c","/static/css/2.ffda3d49.chunk.css.map":"c9dd2110109b6717f1b9217e2ae48529a3a9416149cc01ea9eef08ded8efc79c","/static/css/main.ac9734cd.chunk.css":"db1bf5dbf6c201a6874c40ae664a9492c68e4c7b1db837d21825f311db581616","/static/css/main.ac9734cd.chunk.css.map":"5a4a9ca61e4accde991211fcb5586d133a2d553653a000abf75a57507ebc217e","/static/js/2.52780ea5.chunk.js":"ad9431675dbf55800ed833a5b49fe0c74e2b0dfb536c8c220ed6ac8bf5ad990f","/static/js/2.52780ea5.chunk.js.LICENSE.txt":"dd8370442f741c568395acb6395eeca5ac1bb9c24f0b68535b52427873cda3f7","/static/js/2.52780ea5.chunk.js.map":"4e29598d58da53b2f5e95a6401cbd978b77127795f1a85c66770e2f5588fb0f7","/static/js/3.349bea38.chunk.js":"7ddf0cf2070f7478c9d7df495fb6b665fb98b0df9add5e97de780e54bdef74d5","/static/js/3.349bea38.chunk.js.map":"841af42d625ab7a1ef44798734c23c327d53955af613832047c1f6499f7ad2c4","/static/js/main.61070da3.chunk.js":"a44463c5413b837e206d859b89b5530d745179412ed6070cae15ecaeaeb1cd58","/static/js/main.61070da3.chunk.js.map":"83d0d58f8a62c6739135c465823f44b5919c123eb1ca97eeb749dcf9b93c7a39","/static/js/runtime-main.7032b9bf.js":"ca46d364e140381bcc3dacdec4616aa36532e4ab58e16f417d94902b5034bc12","/static/js/runtime-main.7032b9bf.js.map":"60b7bbe4d9de7e3bbee07724e07f1fcaa04afecc74b6b884f3c4669a072a7dd6","/static/media/404.be4a6e61.png":"050283b2e5ef8a7ab307eaef1fcd5cc2501648a47c6c0931ed679904864ce5d4","/static/media/BebeGroot_Toastify.908358da.png":"1c954d9e489d36931e951bddf11397b42444f462aa53454cb8b860a482a880f8","/static/media/Captain_Formulaire.48e26bd8.png":"ea9dcdbf7d24c7d3a6dbc17e61d12535dd8c0bc29ce70dc911036b1dc1631726","/static/media/Deadpool_Toastify.af1dce25.png":"dd2516f602d7d21a6fdc5ae36be927d37c5da22210b0a18779039b168aa49269","/static/media/Fond_matiere_BODY.ad042ce7.png":"5baf34dae0b5b0441e3fd26a9c3306f313aab0d83d4698201523dc136494464b","/static/media/Fond_matiere_FOOTER2.43d150bb.png":"696c879075f8021e5281033abff0c4bed7a91241e9b8e6d1ffd5a98ccf70891b","/static/media/Fond_matiere_HEADER2.d4851d2f.png":"71b19c9c799f86541c96074fb089da44f456073aee161f370eac63952d537d27","/static/media/Groot_Formulaire.cad6b1ff.png":"c28e718e213ef46f4ca54f5a530c98b5a0578fe3ea44aa3caa6f2a322b649a55","/static/media/MARVEL-QUIZ-3.30c465c3.svg":"0620dd5afac826225cfbab3b5b00ed97d004773bb423ca7d975df0c251257ca2","/static/media/SpiderMan_Toastify.87f9263e.png":"0b157b6c61d12644200437b5c9e13b5f37806ea3991debdf33ef038de1e36be0","/static/media/bg-noise-texture2.d884fa23.png":"eef8c22510d5640cb357f9aabee9ca0cfab96a8b04da323e6eec744f16dcb395","/static/media/griffes-droit_FREDO.85163408.png":"b4e83c699f4916966883ffbfe9bfe8412a605f591712825e16e6f6d88a522168","/static/media/griffes-gauche_FREDO.017d48d0.png":"aeeccbd81e2402120ceb89484e29036da3416a82e046f0bd0b68f66629dd7471","/static/media/iron-man_Formulaire.f21d8b96.png":"b16461913fe6f133a36964f67f9d6d6f978eb356e150551fd2278b8fda095e9f","/static/media/wolverine_FREDO.56f04fe0.png":"5910a0965badfeddc0b5c8839527e44044650a0c308bcd5cdd8518883feb9ffe","/static/media/xmen_FREDO.fdf69ac1.png":"16b6fc3b214cdbfb85750ed7e93f1cc6e1300ba63c9ddab4f6c3b1caab7be5a9"}}
+[debug] [2021-04-18T17:30:22.867Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/versions/0ed170e52108346b:populateFiles 200
+[debug] [2021-04-18T17:30:22.867Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/versions/0ed170e52108346b:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/marvel-quiz-4e882/versions/0ed170e52108346b/files"}
+[debug] [2021-04-18T17:30:22.868Z] [hosting][populate queue][FINAL] {"max":1839,"min":1839,"avg":1839,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1840}
+[debug] [2021-04-18T17:30:22.868Z] [hosting] uploads queued: 0
+[debug] [2021-04-18T17:30:22.868Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1618767022868}
+[info] ✔  hosting[marvel-quiz-4e882]: file upload complete 
+[debug] [2021-04-18T17:30:22.868Z] [hosting] deploy completed after 1859ms
+[debug] [2021-04-18T17:30:23.294Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "marvel-quiz-4e882"
+    },
+    "site": "marvel-quiz-4e882",
+    "version": "sites/marvel-quiz-4e882/versions/0ed170e52108346b"
+  }
+]
+[info] i  hosting[marvel-quiz-4e882]: finalizing version... 
+[debug] [2021-04-18T17:30:23.295Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-18T17:30:23.295Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-18T17:30:23.679Z] <<< HTTP RESPONSE 200 {"date":"Sun, 18 Apr 2021 17:30:23 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:23.704Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/versions/0ed170e52108346b?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2021-04-18T17:30:25.079Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 18 Apr 2021 17:30:25 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:25.079Z] [hosting] finalized version for marvel-quiz-4e882: {"name":"sites/marvel-quiz-4e882/versions/0ed170e52108346b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2021-04-18T17:30:20.215082Z","createUser":{"email":"fredericcreuseveau@gmail.com"},"finalizeTime":"2021-04-18T17:30:24.977744Z","finalizeUser":{"email":"fredericcreuseveau@gmail.com"}}
+[info] ✔  hosting[marvel-quiz-4e882]: version finalized 
+[info] i  hosting[marvel-quiz-4e882]: releasing new version... 
+[debug] [2021-04-18T17:30:25.080Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/marvel-quiz-4e882/releases?version_name=sites/marvel-quiz-4e882/versions/0ed170e52108346b  
+ {"message":null}
+[debug] [2021-04-18T17:30:26.308Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 18 Apr 2021 17:30:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-04-18T17:30:26.308Z] [hosting] release: {"name":"sites/marvel-quiz-4e882/releases/1618767025541806","version":{"name":"sites/marvel-quiz-4e882/versions/0ed170e52108346b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2021-04-18T17:30:20.215082Z","createUser":{"email":"fredericcreuseveau@gmail.com"},"finalizeTime":"2021-04-18T17:30:24.977744Z","finalizeUser":{"email":"fredericcreuseveau@gmail.com"},"preview":{}},"type":"DEPLOY","releaseTime":"2021-04-18T17:30:25.541806940Z","releaseUser":{"email":"fredericcreuseveau@gmail.com"}}
+[info] ✔  hosting[marvel-quiz-4e882]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/marvel-quiz-4e882/overview
+[info] Hosting URL: https://marvel-quiz-4e882.web.app
